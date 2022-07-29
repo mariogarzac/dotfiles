@@ -108,16 +108,21 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
-export EDITOR=nvim
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-alias kalirun="docker run --name kali -it --rm mykali:version2"
-alias py="cd ~/Documents/Code/Python/"
-alias ss="screencapture"
+# git
 alias gitc="git commit -m"
 alias gs="git status"
+
+# utility
+alias py="cd ~/Documents/Code/Python/"
+alias ss="screencapture"
+alias la="ls -alF"
+
+# other
+alias wt="wisdom-tree"
 
 export PATH=$PATH:/Users/mariogarza/.spicetify
 eval $(/opt/homebrew/bin/brew shellenv)
