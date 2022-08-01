@@ -39,6 +39,9 @@ Temporary Items
 [._]s[a-rt-v][a-z]
 [._]ss[a-gi-z]
 [._]sw[a-p]
+../vim/*.swp
+../vim/.*.swp
+../vim/.vimrc.swp
 
 # Session
 Session.vim
