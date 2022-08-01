@@ -1,6 +1,8 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -15,7 +17,6 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -118,11 +119,18 @@ alias gs="git status"
 
 # utility
 alias py="cd ~/Documents/Code/Python/"
+alias walls="cd ~/Documents/Wallpapers/walls/"
+alias wallupdate="python3 ~/Documents/code/python/playground/copy.py > ~/Documents/Wallpapers/README.md"
 alias ss="screencapture"
 alias la="ls -alF"
+alias t="todo.sh"
 
 # other
 alias wt="wisdom-tree"
+alias hist="history|grep"
+alias c="clear"
 
 export PATH=$PATH:/Users/mariogarza/.spicetify
 eval $(/opt/homebrew/bin/brew shellenv)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
