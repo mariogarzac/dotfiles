@@ -1,9 +1,0 @@
- This is Git's per-user configuration file.
-[user]
-	name = Mario Garza Chapa
-	email = mariogarzac99@gmail.com
-
-[init]
-	defaultBranch = main
-[core]
-	excludesFile = ~/.gitignore

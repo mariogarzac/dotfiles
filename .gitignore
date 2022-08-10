@@ -42,6 +42,8 @@ Temporary Items
 ../vim/*.swp
 ../vim/.*.swp
 ../vim/.vimrc.swp
+vim/pack/
+vim/plugged/
 
 # Session
 Session.vim
