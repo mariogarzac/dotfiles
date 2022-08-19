@@ -17,6 +17,7 @@ set signcolumn=yes
 set colorcolumn=80
 set guicursor=i:block
 set autoread
+set shiftwidth=2
 
 " Plugs
 call plug#begin('~/.dotfiles/vim/plugged')
@@ -26,6 +27,9 @@ Plug 'preservim/nerdtree', {'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'junegunn/fzf'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'
@@ -82,9 +86,14 @@ endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
+let mapleader = " "
+
 " To avoid pressing shift to enter command mode
 nnoremap , :
 vnoremap , :
+
+" Refactor code
+nnoremap <F2> gg=G
 
 " Bindings for easy split nav
 nnoremap <C-h> <C-w>h
@@ -102,3 +111,17 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
+
+" Telescope remaps
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
