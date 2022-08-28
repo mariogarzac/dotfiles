@@ -1,0 +1,21 @@
+# git
+alias gc="git commit -m"
+alias ga="git add"
+alias gs="git status"
+alias gp="git push"
+
+# projects
+alias py="cd ~/Documents/Code/Python/"
+alias dnd="cd ~/Documents/Code/Python/Playground/5eEncounter-cli/"
+alias web="cd ~/Documents/Code/Web/"
+alias walls="cd ~/Documents/Wallpapers/walls/"
+alias wallupdate="python3 ~/Documents/code/python/playground/copy.py > ~/Documents/Wallpapers/README.md"
+
+# utility
+alias wt="wisdom-tree"
+alias ss="screencapture"
+alias hist="history|grep"
+alias la="ls -alF"
+alias vim="nvim"
+alias c="clear"
+
