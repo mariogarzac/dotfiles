@@ -118,25 +118,13 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 # Use vim as the editor
 export EDITOR=nvim
 
-# git
-alias gitc="git commit -m"
-alias gita="git add"
-alias gs="git status"
-
-# utility
-alias py="cd ~/Documents/Code/Python/"
-alias walls="cd ~/Documents/Wallpapers/walls/"
-alias wallupdate="python3 ~/Documents/code/python/playground/copy.py > ~/Documents/Wallpapers/README.md"
-alias ss="screencapture"
-alias la="ls -alF"
-alias vim="nvim"
-
-# other
-alias wt="wisdom-tree"
-alias hist="history|grep"
-alias c="clear"
+source ~/.dotfiles/.aliases
 
 export PATH=$PATH:/Users/mariogarza/.spicetify
 eval $(/opt/homebrew/bin/brew shellenv)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# Load Angular CLI autocompletion.
+export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
