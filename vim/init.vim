@@ -22,31 +22,23 @@ set shiftwidth=2
 " Plugs
 call plug#begin('~/.dotfiles/vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release' }
+Plug 'ghifarit53/tokyonight-vim'
 Plug 'preservim/nerdtree', {'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'junegunn/fzf'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'neoclide/coc.nvim', {'branch': 'release' }
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-commentary'
-Plug 'mattn/emmet-vim'
-Plug 'gruvbox-community/gruvbox'
-Plug 'arcticicestudio/nord-vim'
-Plug 'ghifarit53/tokyonight-vim'
 
 call plug#end()
 
 
 
 " Match colors with terminal colors
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+" " color schemes
+ if (has("termguicolors"))
+   set termguicolors
+ endif
 
 let g:tokyonight_style="storm"
 colorscheme tokyonight
@@ -64,16 +56,6 @@ fun! Trimwhitespace()
     call winrestview(l:save)
 endfun
 
-
-augroup MOO
-    autocmd!
-    autocmd BufwritePre * :call Trimwhitespace()
-augroup END
-
-" Remaps
-" Double tap i to quit insert mode
-inoremap ii <Esc>
-
 " Press tab to autocomplete
 function! InsertTabWrapper()
     let col = col('.') - 1
@@ -86,7 +68,16 @@ endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
+augroup MOO
+    autocmd!
+    autocmd BufwritePre * :call Trimwhitespace()
+augroup END
+
 let mapleader = " "
+
+" Remaps
+" Double tap i to quit insert mode
+inoremap ii <Esc>
 
 " To avoid pressing shift to enter command mode
 nnoremap , :
@@ -109,19 +100,20 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " NerdTree
 nmap <C-n> :NERDTreeToggle<CR>
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
+vnoremap ++ <plug>NERDCommenterToggle
+nnoremap ++ <plug>NERDCommenterToggle
 
-" Telescope remaps
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" Closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
 
-" Using Lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
+
 
