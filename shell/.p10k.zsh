@@ -32,7 +32,7 @@
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
-    # os_icon               # os identifier
+  # os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================
@@ -184,9 +184,9 @@
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
-  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=''
   # Custom icon.
-  # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
 
   ################################[ prompt_char: prompt symbol ]################################
   # Green prompt symbol if the last command succeeded.
@@ -209,7 +209,7 @@
 
   ##################################[ dir: current directory ]##################################
   # Default current directory color. #36 249
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND=36 
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=36
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
@@ -366,7 +366,7 @@
       typeset -g my_git_format=$P9K_CONTENT
       return
     fi
-  # CAMBIOS DE GIT 
+  # CAMBIOS DE GIT
     if (( $1 )); then
       # Styling for up-to-date Git status.
       local       meta='%f'     # default foreground
