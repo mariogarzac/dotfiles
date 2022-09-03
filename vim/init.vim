@@ -23,6 +23,8 @@ set shiftwidth=2
 call plug#begin('~/.dotfiles/vim/plugged')
 
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'morhetz/gruvbox'
+Plug 'arzg/vim-colors-xcode'
 Plug 'preservim/nerdtree', {'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -40,8 +42,9 @@ call plug#end()
    set termguicolors
  endif
 
-let g:tokyonight_style="storm"
-colorscheme tokyonight
+let g:tokyonight_style="night"
+colorscheme xcodedarkhc
+
 
 "File browser
 let g:NERDTreeGitStatusWithFlags = 1
