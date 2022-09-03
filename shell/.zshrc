@@ -125,6 +125,5 @@ eval $(/opt/homebrew/bin/brew shellenv)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
 # Load Angular CLI autocompletion.
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
