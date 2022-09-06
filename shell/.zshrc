@@ -107,13 +107,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# re-enable single press key apple
-# defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool true
 
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+COLOR="white"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.dotfiles/shell/.$COLOR.zsh ]] || source ~/.dotfiles/shell/.$COLOR.zsh
 
 # Use vim as the editor
 export EDITOR=nvim
@@ -123,7 +122,5 @@ source ~/.dotfiles/.aliases
 export PATH=$PATH:/Users/mariogarza/.spicetify
 eval $(/opt/homebrew/bin/brew shellenv)
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Load Angular CLI autocompletion.
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+tmux
