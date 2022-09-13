@@ -7,8 +7,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+COLOR="white"
+[[ ! -f ~/.dotfiles/shell/.$COLOR.zsh ]] || source ~/.dotfiles/shell/.$COLOR.zsh
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -108,11 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
-COLOR="white"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.dotfiles/shell/.$COLOR.zsh ]] || source ~/.dotfiles/shell/.$COLOR.zsh
 
 # Use vim as the editor
 export EDITOR=nvim
@@ -123,4 +121,3 @@ export PATH=$PATH:/Users/mariogarza/.spicetify
 eval $(/opt/homebrew/bin/brew shellenv)
 
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
-tmux
