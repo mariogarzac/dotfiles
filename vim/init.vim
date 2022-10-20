@@ -17,41 +17,42 @@ set signcolumn=yes
 set colorcolumn=80
 set guicursor=i:block
 set autoread
+set showmatch
 set shiftwidth=2
+set encoding=UTF-8
+set mouse=a
+set background=dark
 
 " Plugs
-call plug#begin('~/.dotfiles/vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " themes
 Plug 'sainnhe/everforest'
-Plug 'ghifarit53/tokyonight-vim'
+Plug 'folke/tokyonight.nvim'
 Plug 'arcticicestudio/nord-vim'
+
 
 " utilities
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
-Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree', {'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release' }
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-commentary'
+Plug 'itchyny/lightline.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
 " Colors
-" match colors with terminal colors
- if (has("termguicolors"))
-   set termguicolors
- endif
+set termguicolors
 
-" tokyonight preference
-let g:tokyonight_style="storm"
+colorscheme nord
 
-" colorscheme
-colorscheme everforest
+let g:lightline =  {'colorscheme': 'nord'}
 
 "File browser
 let g:NERDTreeGitStatusWithFlags = 1
@@ -59,8 +60,8 @@ let NERDTreeIgnore = ['\.pyc$', '__pycache__', '.*.swp']
 let NERDTreeMinimalUI = 1
 
 " Closetag
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.php'
+let g:closetag_filetypes = 'html,xhtml,phtml,php'
 let g:closetag_regions = {
       \ 'typescript.tsx': 'jsxRegion,tsxRegion',
       \ 'javascript.jsx': 'jsxRegion',
@@ -71,29 +72,33 @@ let g:closetag_regions = {
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
+" use shifted L and H to move between tabs
+nnoremap H gT
+nnoremap L gt
+
 " Functions
 " trims whitespace from file
 fun! Trimwhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
 endfun
 
 " press tab to autocomplete
 function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
 endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
 augroup MOO
-    autocmd!
-    autocmd BufwritePre * :call Trimwhitespace()
+  autocmd!
+  autocmd BufwritePre * :call Trimwhitespace()
 augroup END
 
 let mapleader = " "
@@ -104,6 +109,9 @@ inoremap ii <Esc>
 
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
+
+" NerdTree
+nmap <C-n> :NERDTreeToggle<CR>
 
 " to avoid pressing shift to enter command mode
 nnoremap , :
@@ -123,17 +131,3 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
-
-" auto complete "'([{
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-
-" NerdTree
-nmap <C-n> :NERDTreeToggle<CR>
-vnoremap ++ <plug>NERDCommenterToggle
-nnoremap ++ <plug>NERDCommenterToggle
