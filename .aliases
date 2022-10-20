@@ -6,18 +6,16 @@ alias gp="git push"
 
 # projects
 alias py="cd ~/Documents/Code/Python/"
-alias notes="cd ~/Documents/Code/Documents/Notes/"
 alias dnd="cd ~/Documents/Code/Python/Playground/5eEncounter-cli/"
 alias walls="cd ~/Documents/Wallpapers/walls/"
-alias wall="~/Documents/Wallpapers/walls/"
 alias wallupdate="python3 ~/Documents/code/python/playground/copy.py > ~/Documents/Wallpapers/README.md"
-alias web="cd ~/Web"
 
 # utility
-alias wt="wisdom-tree"
 alias ss="screencapture"
 alias hist="history|grep"
+alias cf="cfiles"
 alias la="ls -alF"
 alias vim="nvim"
 alias c="clear"
+alias thm="sudo openvpn ~/Documents/Network/THM/mariomoo.ovpn"
 
