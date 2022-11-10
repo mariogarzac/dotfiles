@@ -18,6 +18,4 @@ alias vim="nvim"
 alias c="clear"
 alias thm="sudo openvpn ~/Documents/Network/THM/mariomoo.ovpn"
 
-function del(){
-  mv "$@" ~/.Trash
-}
+
