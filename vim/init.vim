@@ -21,16 +21,14 @@ set showmatch
 set shiftwidth=2
 set encoding=UTF-8
 set mouse=a
-set background=dark
+set bg=dark
 
 " Plugs
 call plug#begin('~/.config/nvim/plugged')
 
 " themes
-Plug 'sainnhe/everforest'
 Plug 'folke/tokyonight.nvim'
 Plug 'arcticicestudio/nord-vim'
-
 
 " utilities
 Plug 'nvim-lua/plenary.nvim'
@@ -48,11 +46,17 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 " Colors
-set termguicolors
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
-colorscheme nord
+colorscheme tokyonight-night
 
-let g:lightline =  {'colorscheme': 'nord'}
+let g:lightline = {'colorscheme': 'tokyonight'}
+
+let mapleader = "."
 
 "File browser
 let g:NERDTreeGitStatusWithFlags = 1
@@ -101,8 +105,6 @@ augroup MOO
   autocmd BufwritePre * :call Trimwhitespace()
 augroup END
 
-let mapleader = " "
-
 " Remaps
 " double tap i to quit insert mode
 inoremap ii <Esc>
@@ -131,3 +133,12 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" auto complete "'([{
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
