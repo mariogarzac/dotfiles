@@ -7,6 +7,9 @@ shell:
 #   TERM: alacritty
 # Window customization
 window:
+  dimensions:
+    columns: 182
+    lines: 53
   padding:
     x: 5
     y: 5
@@ -100,9 +103,9 @@ key_bindings:
   - { key: Space, mods: Alt, chars: " " }
   - { key: Back, mods: Super, chars: "\x15" }
   # delete word/line
-  - { key: Left, mods: Alt, chars: "\eb" }
+  - { key: H, mods: Alt, chars: "\eb" }
   # one word left
-  - { key: Right, mods: Alt, chars: "\ef" }
+  - { key: L, mods: Alt, chars: "\ef" }
   # one word right
   - {
       key: Left,
