@@ -78,5 +78,8 @@ tags
 # Support for Project snippet scope
 !.vscode/*.code-snippets
 
+# packer compiled 
+nvim/plugin/packer_compiled.lua
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,vim
 
