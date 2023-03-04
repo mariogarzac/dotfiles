@@ -1,4 +1,4 @@
-syntax on
+" ================ General Config =================
 set tabstop=4 softtabstop=4
 set number
 set autoindent
@@ -23,19 +23,17 @@ set encoding=UTF-8
 set mouse=a
 set bg=dark
 
-" Plugs
+" ==================== Plug =======================
 call plug#begin('~/.config/nvim/plugged')
 
 " themes
 Plug 'folke/tokyonight.nvim'
-Plug 'arcticicestudio/nord-vim'
 
 " utilities
+Plug 'tmsvg/pear-tree'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
-Plug 'preservim/nerdtree', {'on':  'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'preservim/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release' }
 Plug 'alvan/vim-closetag'
@@ -45,25 +43,15 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
-" Colors
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+" =================== Colors ======================
+set termguicolors
 
 colorscheme tokyonight-night
 
 let g:lightline = {'colorscheme': 'tokyonight'}
 
-let mapleader = "."
 
-"File browser
-let g:NERDTreeGitStatusWithFlags = 1
-let NERDTreeIgnore = ['\.pyc$', '__pycache__', '.*.swp']
-let NERDTreeMinimalUI = 1
-
-" Closetag
+" ==================== Closetag ===================
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.php'
 let g:closetag_filetypes = 'html,xhtml,phtml,php'
 let g:closetag_regions = {
@@ -76,11 +64,8 @@ let g:closetag_regions = {
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
-" use shifted L and H to move between tabs
-nnoremap H gT
-nnoremap L gt
 
-" Functions
+" ================== Functions ====================
 " trims whitespace from file
 fun! Trimwhitespace()
   let l:save = winsaveview()
@@ -88,32 +73,14 @@ fun! Trimwhitespace()
   call winrestview(l:save)
 endfun
 
-" press tab to autocomplete
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
-
 augroup MOO
   autocmd!
   autocmd BufwritePre * :call Trimwhitespace()
 augroup END
 
-" Remaps
-" double tap i to quit insert mode
-inoremap ii <Esc>
-
-" Telescope
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-
-" NerdTree
-nmap <C-n> :NERDTreeToggle<CR>
+" ================== Remaps =======================
+" leader
+let mapleader = " "
 
 " to avoid pressing shift to enter command mode
 nnoremap , :
@@ -134,11 +101,26 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" auto complete "'([{
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+" =============== Buffer management ===============
+" Move between buffers using H and L
+nnoremap <leader>h :bn<CR>
+nnoremap <leader>l :bp<CR>
+
+" Create new empty buffer using T
+nnoremap <leader>t :enew<CR>
+
+" Close current buffer and move to previous one
+nmap <leader>bq :bp <BAR> bd #<CR>
+
+" Show current buffers and their status
+nmap <leader>bl :ls<CR>
+
+" =================== Telescope ===================
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+
+" ================== NERDTree =====================
+let NERDTreeQuitOnOpen=1
+nnoremap <C-N> :NERDTreeToggle<CR>
+
+
+
