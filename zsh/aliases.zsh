@@ -5,7 +5,7 @@ alias gs="git status"
 alias gp="git push"
 
 # projects
-alias repos = "cd ~/repos/"
+alias repos="cd ~/repos/"
 alias py="cd ~/repos/Code/Python/"
 alias dnd="cd ~/repos/code/Python/5eEncounter-cli/"
 alias walls="cd ~/repos/Wallpapers/walls"
