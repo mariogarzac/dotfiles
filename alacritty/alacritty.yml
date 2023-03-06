@@ -80,7 +80,7 @@ selection:
   save_to_clipboard: false
 
 cursor:
-  style: Block
+  style: block
   unfocused_hollow: true
 
 # Key bindings
