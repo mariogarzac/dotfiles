@@ -88,63 +88,43 @@ key_bindings:
   # iterm2 Vim key bindings
   - { key: Return, mods: Command, chars: ":wq\n" }
   - { key: S, mods: Command, chars: ":w\n" }
-
-  # Quality of life
-  - {
-      key: Comma,
-      mods: Command,
-      command:
-        {
-          program: "sh",
-          args: [ "-c", "vim ~/.config/alacritty/alacritty.yml" ]
-        }
-    }
+  # new window
   - { key: N, mods: Command, action: SpawnNewInstance }
+  # don't really know
   - { key: Space, mods: Alt, chars: " " }
   - { key: Back, mods: Super, chars: "\x15" }
-  # delete word/line
-  - { key: H, mods: Alt, chars: "\eb" }
+
   # one word left
-  - { key: L, mods: Alt, chars: "\ef" }
+  - { key: Left, mods: Alt, chars: "\eb" }
   # one word right
-  - {
-      key: Left,
-      mods: Command,
-      chars: "\eOH",
-      mode: AppCursor
-    }
+  - { key: Right, mods: Alt, chars: "\ef" }
   # Home
-  - {
-      key: Right,
-      mods: Command,
-      chars: "\eOF",
-      mode: AppCursor
-    }
+  - { key: Left, mods: Command, chars: "\eOH", mode: AppCursor }
   # End
+  - { key: Right, mods: Command, chars: "\eOF", mode: AppCursor }
+  # Copy paste
   - { key: V, mods: Command, action: Paste }
   - { key: C, mods: Command, action: Copy }
 
   # Allow special characters
+  # tilde ~
   - { key: Grave, mods: Alt, chars: "~" }
-  - { key: N, mods: Command|Shift, action: SpawnNewInstance }
-  - { key: 10, mods: Alt, chars: "\\" }
   # barra invertida `\`
-  - { key: 18, mods: Alt, chars: "|" }
+  - { key: 10, mods: Alt, chars: "\\" }
   # barra vertical `|`
-  - { key: Key2, mods: Alt, chars: "@" }
+  - { key: 18, mods: Alt, chars: "|" }
   # arroba `@`
   - { key: Q, mods: Alt, chars: "@" }
-  # arroba `@`
-  - { key: Key3, mods: Alt, chars: "#" }
   # almohadilla/cardinalidad `#`
-  - { key: Key6, mods: Alt, chars: "¬" }
+  - { key: Key3, mods: Alt, chars: "#" }
   # negación en lógica `¬`
-  - { key: 39, mods: Alt, chars: "{" }
+  - { key: Key6, mods: Alt, chars: "¬" }
   # abre llaves `{`
-  - { key: 42, mods: Alt, chars: "}" }
+  - { key: 39, mods: Alt, chars: "{" }
   # cierra llaves `}`
-  - { key: 33, mods: Alt, chars: "[" }
+  - { key: 42, mods: Alt, chars: "}" }
   # abre corchetes `[`
-  - { key: 30, mods: Alt, chars: "]" }
+  - { key: 33, mods: Alt, chars: "[" }
   # cierra corchetes `]`
+  - { key: 30, mods: Alt, chars: "]" }
 theme: Tokyonight_Night
