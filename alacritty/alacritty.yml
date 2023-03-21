@@ -16,7 +16,7 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
-  opacity: 0.95
+  # opacity: 0.95
   decorations: buttonless
 
 # Scrolling
@@ -40,7 +40,6 @@ font:
     style: Bold Italic
   size: 13
 draw_bold_text_with_bright_colors: true
-
 
 colors:
   name: TokyoNight Night
@@ -75,6 +74,7 @@ colors:
   indexed_colors:
     - { index: 16, color: '0xff9e64' }
     - { index: 17, color: '0xdb4b4b' }
+
 # Misc
 selection:
   save_to_clipboard: false
@@ -114,7 +114,7 @@ key_bindings:
   # barra vertical `|`
   - { key: 18, mods: Alt, chars: "|" }
   # arroba `@`
-  - { key: Q, mods: Alt, chars: "@" }
+  - { key: Key2, mods: Alt, chars: "@"}
   # almohadilla/cardinalidad `#`
   - { key: Key3, mods: Alt, chars: "#" }
   # negación en lógica `¬`
@@ -127,4 +127,3 @@ key_bindings:
   - { key: 33, mods: Alt, chars: "[" }
   # cierra corchetes `]`
   - { key: 30, mods: Alt, chars: "]" }
-theme: Tokyonight_Night
