@@ -19,5 +19,6 @@ alias la="ls -alF"
 alias vim="nvim"
 alias c="clear"
 alias thm="sudo openvpn ~/repos/Network/THM/mariomoo.ovpn"
+alias tt="tmux attach-session -t"
 
 
