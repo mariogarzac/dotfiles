@@ -10,16 +10,20 @@ selected_file=$(find ~/repos ~/Documents ~/Desktop ~/Downloads -type d \( \
   -o -name '*Cisco*' \
   \) -prune -o -type f -print | fzf )
 
-file_extension="${selected_file##*.}"
-
-if [[ $file_extension == "pdf" ]]; then
-    open "$selected_file"
+if [[ -z "$selected_file" ]]; then
+    exit 0
 else
-    directory=$(dirname "$selected_file")
-    session_name=$(echo "$directory" | awk -F'repos/' '{print $2}' | awk -F'/' '{print $1}')
+    file_extension="${selected_file##*.}"
 
-    cd "$directory"
-    tmux new-session -d -s "$session_name"
-    tmux send-keys -t "$session_name:1" "nvim '$selected_file'" Enter
-    tmux switch-client -t "$session_name"
+    if [[ $file_extension == "pdf" ]]; then
+        open "$selected_file"
+    else
+        directory=$(dirname "$selected_file")
+        session_name=$(echo "$directory" | awk -F'repos/' '{print $2}' | awk -F'/' '{print $1}')
+
+        cd "$directory"
+        tmux new-session -d -s "$session_name"
+        tmux send-keys -t "$session_name:1" "nvim '$selected_file'" Enter
+        tmux switch-client -t "$session_name"
+    fi
 fi
