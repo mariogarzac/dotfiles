@@ -3,10 +3,7 @@ alias gc="git commit -m"
 alias ga="git add"
 alias gs="git status"
 alias gp="git push"
-
-# projects
-alias repos="cd ~/repos/"
-alias walls="cd ~/repos/Wallpapers/walls"
+alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # utility
 alias hist="history|grep"
@@ -16,4 +13,5 @@ alias c="clear"
 alias tt="tmux attach-session -t"
 alias tmxc="~/.dotfiles/zsh/tmxc.sh"
 
-
+# fzf
+alias fzf="~/.dotfiles/zsh/fzf-tmux.sh"
