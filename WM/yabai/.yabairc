@@ -1,0 +1,37 @@
+#!/usr/bin/env sh
+
+# Allow yabai to run commands without sudo password
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# general config
+yabai -m config window_border_width          6
+yabai -m config window_border                off
+
+# general space settings
+yabai -m config layout bsp
+yabai -m config top_padding 32
+yabai -m config bottom_padding 12
+yabai -m config left_padding 12
+yabai -m config right_padding 12
+yabai -m config window_gap 06
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.90
+yabai -m config window_opacity off
+
+# ignore apps
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^Hearthstone$" manage=off
+yabai -m rule --add app="^Battle.net$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^PS Remote Play$" manage=off
+yabai -m rule --add app="^Discord$" manage=off
+yabai -m rule --add app="^Find My$" manage=off
+yabai -m rule --add app="^Calendar$" manage=off
+yabai -m rule --add app="^League of Legends$" manage=off
+yabai -m rule --add app="^League of Legends(TM) Client$" manage=off
+yabai -m rule --add app="^Riot Client$" manage=off
+
+
+echo "yabai configuration loaded.."
