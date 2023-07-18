@@ -40,6 +40,12 @@ if [[ -z "$session_name" ]]; then
     session_name=$(echo "$session_name" | sed s/\.//)
 fi
 
+# Check if the session already exists
+if tmux ls | grep -q "$session_name"; then
+    tmux switch-client -t "$session_name"
+    exit 0
+fi
+
 # Change into file's directory
 cd "$directory"
 
