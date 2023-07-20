@@ -9,6 +9,7 @@ echo "Installing Brew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew analytics off
 
+echo "Changing system settings..."
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock "mru-spaces" -bool "false"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
