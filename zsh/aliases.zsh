@@ -10,8 +10,9 @@ alias hist="history|grep"
 alias la="ls -alF"
 alias vim="nvim"
 alias c="clear"
-alias tt="tmux attach-session -t"
-alias tmxc="~/.dotfiles/zsh/tmxc.sh"
 
-# fzf
-alias fzf="~/.dotfiles/zsh/fzf-tmux.sh"
+# tmux
+alias tt="tmux attach-session -t"
+
+# misc
+alias spicetify="~/.spicetify/spicetify"
