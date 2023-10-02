@@ -25,7 +25,7 @@ function fd(){
         -o -name 'DND' \
         -o -name 'Network' \
         -o -name 'Library' \
-        -o -name 'Wallpapers' \
+        -o -name 'Unity' \
         -o -name '*Cisco*' \
         \) -prune -o -type d -print | fzf)
  
@@ -69,6 +69,7 @@ function ff(){
         -o -name 'Network' \
         -o -name 'Library' \
         -o -name 'Wallpapers' \
+        -o -name 'Unity' \
         -o -name '*Cisco*' \
         \) -prune -o -type f -print | fzf)
  
