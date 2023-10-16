@@ -93,5 +93,11 @@ function ff(){
         fi
     fi
 
-    tmux send-keys -t "$session_name:1" "nvim '$(basename $selected_file)'" Enter
+    if file "$selected_file" | grep -q "ASCII"; then
+        # tmux send-keys -t "$session_name:1" "nvim '$(basename $selected_file)'" Enter
+        tmux send-keys -t "$session_name:1" "nvim '$selected_file'" Enter
+    else
+        open "$selected_file"
+    fi
+
 }
