@@ -3,8 +3,8 @@ shell:
   program: /bin/zsh
 
 # Colors
-# env:
-#   TERM: alacritty
+env:
+  TERM: alacritty
 # Window customization
 window:
   dimensions:
@@ -12,11 +12,11 @@ window:
     lines: 53
   padding:
     x: 5
-    y: 5
+    y: 7
   class:
     instance: Alacritty
     general: Alacritty
-    opacity: 0.95
+    # opacity: .9
   decorations: buttonless
 
 # Scrolling
@@ -27,18 +27,18 @@ scrolling:
 # Font
 font:
   normal:
-    family: Hack Nerd Font
+    family: MesloLGS NF
     style: Regular
   bold:
-    family: Hack Nerd Font
+    family: MesloLGS NF
     style: Bold
   italic:
-    family: Hack Nerd Font
+    family: MesloLGS NF
     style: Italic
   bold_italic:
-    family: Hack Nerd Font
+    family: MesloLGS NF
     style: Bold Italic
-  size: 13
+  size: 14
 draw_bold_text_with_bright_colors: true
 
 colors:
@@ -46,7 +46,7 @@ colors:
   author: Folke
   # Default colors
   primary:
-    background: '0x1a1b26'
+    background: '0x24283B'
     foreground: '0xc0caf5'
 
   # Normal colors
@@ -85,9 +85,6 @@ cursor:
 
 # Key bindings
 key_bindings:
-  # iterm2 Vim key bindings
-  - { key: Return, mods: Command, chars: ":wq\n" }
-  - { key: S, mods: Command, chars: ":w\n" }
   # new window
   - { key: N, mods: Command, action: SpawnNewInstance }
   # don't really know
