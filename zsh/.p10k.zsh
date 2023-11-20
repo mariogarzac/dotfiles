@@ -23,6 +23,13 @@ PRIMARY=45
 SECONDARY=57
 ERROR=200
 
+# Git Colors
+META='%f'
+CLEAN='%255F'
+MODIFIED='%203F'
+UNTRACKED='%87F'
+CONFLICTED='%196F'
+
 () {
   emulate -L zsh -o extended_glob
 
@@ -183,8 +190,8 @@ ERROR=200
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=
-  # Custom icon.
-  # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
+  # Custom icon. Removed the icon for now
+  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
 
   ################################[ prompt_char: prompt symbol ]################################
   # Green prompt symbol if the last command succeeded.
@@ -206,6 +213,12 @@ ERROR=200
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
 
   ##################################[ dir: current directory ]##################################
+  # Home icon. $'\uf74b' for folder icon
+  typeset -g POWERLEVEL9K_HOME_ICON=
+  # Sub folder icon. Remove to return folder icon.
+  typeset -g POWERLEVEL9K_HOME_SUB_ICON=$'\uf74b' 
+  # Seeing what changes with this one
+  typeset -g POWERLEVEL9K_FOLDER_ICON='HERE!'
   # Default current directory color.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=$PRIMARY
   # If directory is too long, shorten some of its segments to the shortest possible unique
@@ -284,6 +297,7 @@ ERROR=200
   # The default icon shown next to non-writable and non-existent directories when
   # POWERLEVEL9K_DIR_SHOW_WRITABLE is set to v3.
   # typeset -g POWERLEVEL9K_LOCK_ICON='⭐'
+  typeset -g POWERLEVEL9K_FOLDER_ICON=$'\uf74b'
 
   # POWERLEVEL9K_DIR_CLASSES allows you to specify custom icons and colors for different
   # directories. It must be an array with 3 * N elements. Each triplet consists of:
@@ -367,11 +381,11 @@ ERROR=200
 
     if (( $1 )); then
       # Styling for up-to-date Git status.
-      local       meta='%f'     # default foreground
-      local      clean='%255F'  # white foreground
-      local   modified='%203F'  # pink foreground
-      local  untracked='%87F'   # blue foreground
-      local conflicted='%196F'  # red foreground
+      local       meta=$META       # default foreground
+      local      clean=$CLEAN      # white foreground
+      local   modified=$MODIFIED   # pink foreground
+      local  untracked=$UNTRACKED  # blue foreground
+      local conflicted=$CONFLICTED # red foreground
     else
       # Styling for incomplete and stale Git status.
       local       meta='%244F'  # grey foreground
