@@ -15,11 +15,11 @@ function tm(){
 function fd(){
     selected_dir=$(find ~/repos ~/Documents ~/Desktop ~/Downloads ~/.dotfiles -type d \( \
         -name '.obsidian' \
+        -o -name 'cheat-sheet' \
         -o -name '.git' \
         -o -name 'lib' \
         -o -name 'bin' \
         -o -name 'node_modules' \
-        -o -name 'Obsidian' \
         -o -name '_resources' \
         -o -name 'Labs' \
         -o -name 'DND' \
@@ -28,7 +28,7 @@ function fd(){
         -o -name 'Unity' \
         -o -name '*Cisco*' \
         \) -prune -o -type d -print | fzf)
- 
+
     # Check if input is empty and exit if it is
     if [[ -z "$selected_dir" ]]; then
         return
@@ -42,7 +42,7 @@ function fd(){
         tmux switch -t "$session_name"
         return
     fi
-    
+
     # Create the session
     tmux new-session -d -s "$session_name" -c "$selected_dir"
 
@@ -72,7 +72,7 @@ function ff(){
         -o -name 'Unity' \
         -o -name '*Cisco*' \
         \) -prune -o -type f -print | fzf)
- 
+
     # Check if input is empty and exit if it is
     if [[ -z "$selected_file" ]]; then
         return
@@ -94,10 +94,25 @@ function ff(){
     fi
 
     if file "$selected_file" | grep -q "ASCII"; then
-        # tmux send-keys -t "$session_name:1" "nvim '$(basename $selected_file)'" Enter
         tmux send-keys -t "$session_name:1" "nvim '$selected_file'" Enter
     else
         open "$selected_file"
     fi
 
+}
+
+function bs() {
+    file=$(find . -type d \( \
+        -name '.obsidian' \
+        -o -name '.git' \
+        -o -name '_resources' \
+        -o -name 'Cybersecurity' \
+        \) -prune -o -type f ! -name '.DS_Store' -print | fzf)
+
+    if [[ -z "$file" ]]; then
+        return
+    fi
+
+    tmux new-window -d -c "$(dirname "$file")" -n "$window_name" 
+    tmux select-window -t "$window_name" \; send-keys "vim \"$(basename "$file")\"" Enter
 }
