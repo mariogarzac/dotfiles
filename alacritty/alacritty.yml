@@ -38,7 +38,7 @@ font:
   bold_italic:
     family: MesloLGS NF
     style: Bold Italic
-  size: 14
+  size: 20
 draw_bold_text_with_bright_colors: true
 
 colors:
@@ -53,7 +53,7 @@ colors:
   normal:
     black: '0x15161E'
     red: '0xf7768e'
-    green: '0xA09BDA' #'0x9ece6a' Change command color from green to purple
+    green: '0x73daca' 
     yellow: '0xe0af68'
     blue: '0x7aa2f7'
     magenta: '0xbb9af7'
@@ -64,7 +64,7 @@ colors:
   bright:
     black: '0x414868'
     red: '0xf7768e'
-    green: '0x9ece6a'
+    green: '0x73daca'
     yellow: '0xe0af68'
     blue: '0x7aa2f7'
     magenta: '0xbb9af7'
@@ -102,6 +102,9 @@ key_bindings:
   # Copy paste
   - { key: V, mods: Command, action: Paste }
   - { key: C, mods: Command, action: Copy }
+  # Avoid quitting unexpectedly
+  - { key: Q, mods: Command, action: None }
+  - { key: W, mods: Command, action: None }
 
   # Allow special characters
   # tilde ~
