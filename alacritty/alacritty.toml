@@ -1,0 +1,184 @@
+[[colors.indexed_colors]]
+color = "0xff9e64"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xdb4b4b"
+index = 17
+
+[colors.bright]
+black = "0x414868"
+blue = "0x7aa2f7"
+cyan = "0x7dcfff"
+green = "0x73daca"
+magenta = "0xbb9af7"
+red = "0xf7768e"
+white = "0xc0caf5"
+yellow = "0xe0af68"
+
+[colors.normal]
+black = "0x15161E"
+blue = "0x7aa2f7"
+cyan = "0x7dcfff"
+green = "0x73daca"
+magenta = "0xbb9af7"
+red = "0xf7768e"
+white = "0xa9b1d6"
+yellow = "0xe0af68"
+
+[colors.primary]
+background = "0x24283B"
+foreground = "0xc0caf5"
+
+[cursor]
+style = "block"
+unfocused_hollow = true
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 19
+
+[font.bold]
+family = "MesloLGS NF"
+style = "Bold"
+
+[font.bold_italic]
+family = "MesloLGS NF"
+style = "Bold Italic"
+
+[font.italic]
+family = "MesloLGS NF"
+style = "Italic"
+
+[font.normal]
+family = "MesloLGS NF"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = " "
+key = "Space"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0015"
+key = "Back"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "Left"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "Right"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001BOH"
+key = "Left"
+mode = "AppCursor"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001BOF"
+key = "Right"
+mode = "AppCursor"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Q"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "None"
+key = "W"
+mods = "Command"
+
+# [[keyboard.bindings]]
+# chars = "~"
+# key = "Grave"
+# mods = "Alt"
+
+[[keyboard.bindings]]
+chars = '\'
+key = 10
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "|"
+key = 18
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "@"
+key = "Key2"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "#"
+key = "Key3"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "{"
+key = 39
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "}"
+key = 42
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "["
+key = 33
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "]"
+key = 30
+mods = "Alt"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+
+[shell]
+program = "/bin/zsh"
+
+[window]
+decorations = "buttonless"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.dimensions]
+columns = 182
+lines = 53
+
+[window.padding]
+x = 10
+y = 10
