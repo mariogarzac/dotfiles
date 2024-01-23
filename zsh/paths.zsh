@@ -1,6 +1,6 @@
 export EDITOR=nvim
 
-plugins=(git zsh-syntax-highlighting )
+plugins=(git)
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export ZSH=$HOME/.oh-my-zsh
