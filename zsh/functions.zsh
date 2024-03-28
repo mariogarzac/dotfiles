@@ -13,9 +13,12 @@ function tm(){
 }
 
 function fd(){
-    selected_dir=$(find ~/repos ~/Documents ~/Desktop ~/Downloads ~/.dotfiles -type d \( \
+    selected_dir=$(find ~/repos ~/Desktop ~/Downloads ~/.dotfiles -type d \( \
         -name '.obsidian' \
         -o -name 'cheat-sheet' \
+        -o -name 'Obsidian' \
+        -o -name 'minecraft' \
+        -o -name 'School' \
         -o -name '.git' \
         -o -name 'lib' \
         -o -name 'bin' \
@@ -37,7 +40,7 @@ function fd(){
     session_name=$(basename "$selected_dir")
     session_name=${session_name//./}
 
-    # Check if the session already exists 
+    # Check if the session already exists
     if tmux ls | grep -q "$session_name"; then
         tmux switch -t "$session_name"
         return
@@ -63,6 +66,7 @@ function ff(){
         -o -name 'bin' \
         -o -name 'node_modules' \
         -o -name 'Obsidian' \
+        -o -name 'School' \
         -o -name '_resources' \
         -o -name 'Labs' \
         -o -name 'DND' \
@@ -113,6 +117,6 @@ function bs() {
         return
     fi
 
-    tmux new-window -d -c "$(dirname "$file")" -n "$window_name" 
+    tmux new-window -d -c "$(dirname "$file")" -n "$window_name"
     tmux select-window -t "$window_name" \; send-keys "vim \"$(basename "$file")\"" Enter
 }
