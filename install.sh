@@ -29,14 +29,11 @@ echo "Installing nvim config..."
 mkdir ~/.config && cd ~/.config
 git clone https://github.com/mariogarzac/nvim
 
-# Install packer
-echo "Installing packer..."
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
 echo "Creating symbolic links..."
 ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
 ln -sf ~/.dotfiles/zsh/.tmux.conf ~/.tmux.conf
+ln -sf ~/.dotfiles/WM/yabai/.yabairc ~/.yabairc
+ln -sf ~/.dotfiles/WM/skhd/.skhdrc ~/.skhdrc
 
 mkdir ~/.config/alacritty/
 ln -sf ~/.dotfiles/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
