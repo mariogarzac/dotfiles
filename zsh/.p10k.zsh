@@ -19,9 +19,9 @@
 'builtin' 'setopt' 'no_aliases' 'no_sh_glob' 'brace_expand'
 
 # Change colors
-PRIMARY=45
-SECONDARY=57
-ERROR=200
+PRIMARY=004    # dirname and icon
+SECONDARY=013  # icon after dirname
+ERROR=001     # icon after dirname alt for errors
 
 # Git Colors
 META='%f'
