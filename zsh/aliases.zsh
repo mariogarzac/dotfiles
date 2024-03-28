@@ -11,8 +11,9 @@ alias la="ls -alF"
 alias vim="nvim"
 alias c="clear"
 
-# tmux
-alias tt="tmux attach-session -t"
+# tools
+alias tt="tmux attach"
+alias k="kubectl"
+alias d="docker"
+alias mk="minikube"
 
-# misc
-alias spicetify="~/.spicetify/spicetify"
