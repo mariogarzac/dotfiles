@@ -5,8 +5,12 @@ echo "Installing commandline tools..."
 xcode-select --install
 
 # Install ohmyzsh
-echo "Installing ohmyzsh packages..."
+echo "Installing ohmyzsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo "Installing zsh extensions"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 echo "Installing powerlevel10k and MesloLGS NF..."
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -16,7 +20,7 @@ wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20I
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 
 # Install homebrew
-echo "Installing homebrew packages..."
+echo "Installing homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Clone .dotfiles
@@ -44,7 +48,6 @@ brew install zsh
 brew install tmux
 brew install neovim
 brew install python3
-brew install zsh-syntax-highlighting
 
 # Install casks
 echo "Installing homebrew casks..."
