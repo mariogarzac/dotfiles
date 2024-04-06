@@ -1,7 +1,6 @@
 export EDITOR=nvim
 
-plugins=(git)
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
