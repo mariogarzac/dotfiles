@@ -57,54 +57,6 @@ function fd(){
     fi
 }
 
-function ff(){
-    session_name="quick"
-    selected_file=$(find ~/repos ~/Documents ~/Desktop ~/Downloads ~/.dotfiles -type d \( \
-        -name '.obsidian' \
-        -o -name '.git' \
-        -o -name 'lib' \
-        -o -name 'bin' \
-        -o -name 'node_modules' \
-        -o -name 'Obsidian' \
-        -o -name 'School' \
-        -o -name '_resources' \
-        -o -name 'Labs' \
-        -o -name 'DND' \
-        -o -name 'Network' \
-        -o -name 'Library' \
-        -o -name 'Wallpapers' \
-        -o -name 'Unity' \
-        -o -name '*Cisco*' \
-        \) -prune -o -type f -print | fzf)
-
-    # Check if input is empty and exit if it is
-    if [[ -z "$selected_file" ]]; then
-        return
-    fi
-
-    # Get directory name and session name
-    if tmux ls | grep -q "$session_name"; then
-        tmux switch -t "$session_name"
-    else
-        tmux new-session -d -s "$session_name" -c "$(dirname $selected_file)"
-        echo "$(basename $selected_file)"
-
-        # Switch or attach to the session
-        if [[ -z "${TMUX}" ]]; then
-            tmux attach -t "$session_name"
-        else
-            tmux switch -t "$session_name"
-        fi
-    fi
-
-    if file "$selected_file" | grep -q "ASCII"; then
-        tmux send-keys -t "$session_name:1" "nvim '$selected_file'" Enter
-    else
-        open "$selected_file"
-    fi
-
-}
-
 function bs() {
     file=$(find . -type d \( \
         -name '.obsidian' \

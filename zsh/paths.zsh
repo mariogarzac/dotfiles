@@ -7,4 +7,4 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$PATH:/Users/mariogarza/go/bin"
+export PATH="$PATH:$HOME/go/bin"
