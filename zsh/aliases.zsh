@@ -15,5 +15,3 @@ alias c="clear"
 alias tt="tmux attach"
 alias k="kubectl"
 alias d="docker"
-alias mk="minikube"
-

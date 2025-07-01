@@ -4,6 +4,14 @@
 echo "Installing commandline tools..."
 xcode-select --install
 
+# Install homebrew
+echo "Installing homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install packages
+echo "Installing homebrew packages..."
+brew install zsh
+
 # Install ohmyzsh
 echo "Installing ohmyzsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -18,15 +26,6 @@ wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20R
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
-
-# Install homebrew
-echo "Installing homebrew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Clone .dotfiles
-echo "Installing dotfiles..."
-mkdir ~/.dotfiles && cd ~/.dotfiles
-git clone https://github.com/mariogarzac/dotfiles .
 
 # Clone nvim config
 echo "Installing nvim config..."
@@ -67,5 +66,3 @@ defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
-
-

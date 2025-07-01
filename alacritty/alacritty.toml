@@ -1,4 +1,4 @@
-import = [
+general.import = [
     "~/.config/alacritty/themes/themes/tks.toml"
 ]
 
@@ -10,7 +10,7 @@ unfocused_hollow = true
 TERM = "alacritty"
 
 [font]
-size = 19
+size = 16
 
 [font.bold]
 family = "MesloLGS NF"
@@ -85,10 +85,10 @@ action = "None"
 key = "W"
 mods = "Command"
 
-# [[keyboard.bindings]]
-# chars = "~"
-# key = "Grave"
-# mods = "Alt"
+[[keyboard.bindings]]
+chars = "~"
+key = "Ñ"
+mods = "Alt"
 
 [[keyboard.bindings]]
 chars = '\'
@@ -137,7 +137,7 @@ multiplier = 3
 [selection]
 save_to_clipboard = false
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 
 [window]
