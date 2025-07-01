@@ -1,0 +1,9 @@
+/* Increase space in editing mode*/
+div.view-content
+{
+	margin-top: 35px !important;
+}
+
+.markdown-source-view.mod-cm6 .cm-line {
+    caret-color: var(--text-accent)!important;
+}

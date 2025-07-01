@@ -1,0 +1,14 @@
+{
+  "cssTheme": "Minimal",
+  "accentColor": "#7c98d0",
+  "baseFontSize": 18,
+  "enabledCssSnippets": [
+    "headings",
+    "center",
+    "minimal",
+    "tab-space"
+  ],
+  "showViewHeader": false,
+  "showRibbon": false,
+  "theme": "obsidian"
+}
