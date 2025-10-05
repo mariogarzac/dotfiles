@@ -8,7 +8,7 @@ function del(){
 }
 
 function fd(){
-    selected_dir=$(find ~/repos ~/Desktop ~/Downloads ~/.dotfiles -type d \( \
+    selected_dir=$(find ~/repos ~/.dotfiles -type d \( \
         -name '.obsidian' \
         -o -name '.git' \
         -o -name 'lib' \

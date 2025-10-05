@@ -3,5 +3,3 @@
 [[ ! -f ~/.dotfiles/zsh/paths.zsh ]] || source ~/.dotfiles/zsh/paths.zsh
 [[ ! -f ~/.dotfiles/zsh/aliases.zsh ]] || source ~/.dotfiles/zsh/aliases.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-eval $(/opt/homebrew/bin/brew shellenv)

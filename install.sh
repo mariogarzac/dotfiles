@@ -1,17 +1,3 @@
-#!/bin/bash
-
-# Install XCode cli tools
-echo "Installing commandline tools..."
-xcode-select --install
-
-# Install homebrew
-echo "Installing homebrew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Install packages
-echo "Installing homebrew packages..."
-brew install zsh
-
 # Install ohmyzsh
 echo "Installing ohmyzsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -27,42 +13,27 @@ wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20B
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 
-# Clone nvim config
-echo "Installing nvim config..."
-mkdir ~/.config && cd ~/.config
-git clone https://github.com/mariogarzac/nvim
+echo "Downloading tpm..."
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+echo "Run prefix + I inside tmux to install packages"
 
 echo "Creating symbolic links..."
 ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
 ln -sf ~/.dotfiles/zsh/.tmux.conf ~/.tmux.conf
-ln -sf ~/.dotfiles/WM/yabai/.yabairc ~/.yabairc
-ln -sf ~/.dotfiles/WM/skhd/.skhdrc ~/.skhdrc
 
-mkdir ~/.config/alacritty/
-ln -sf ~/.dotfiles/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+echo "Downloading go1.25.1 (might not be the latest version)..."
+wget https://go.dev/dl/go1.25.1.linux-amd64.tar.gz
+echo "run as sudo 'sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.25.1.linux-amd64.tar.gz'"
 
-# Install packages
-echo "Installing homebrew packages..."
-brew install zsh
-brew install tmux
-brew install neovim
-brew install python3
+echo "Downloading neovim..."
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+git clone https://github.com/mariogarzac/nvim ~/.config/nvim
 
-# Install casks
-echo "Installing homebrew casks..."
-brew install raycast
-brew install alacritty
-brew install docker
-brew install spotify
-
-echo "Changing system settings..."
-defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock "mru-spaces" -bool "false"
-defaults write com.apple.desktopservices DSDontWriteNetworkStores true
-defaults write com.apple.screencapture disable-shadow -bool true
-defaults write com.apple.screencapture type -string "png"
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
-defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
-defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
-defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
-defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+# sudo apt-get install zsh
+# sudo apt-get install tmux
+# sudo apt-get install ripgrep
+# sudo apt-get install clang
+# sudo apt-get install fzf
+# sudo apt-get install tree
