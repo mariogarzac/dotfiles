@@ -19,13 +19,13 @@
 'builtin' 'setopt' 'no_aliases' 'no_sh_glob' 'brace_expand'
 
 # Change colors
-PRIMARY=004    # dirname and icon
-SECONDARY=013  # icon after dirname
+PRIMARY=006    # dirname and icon
+SECONDARY=004  # icon after dirname
 ERROR=001     # icon after dirname alt for errors
 
 # Git Colors
 META='%f'
-CLEAN='%255F'
+CLEAN='%253f'
 MODIFIED='%203F'
 UNTRACKED='%87F'
 CONFLICTED='%196F'
@@ -189,9 +189,9 @@ CONFLICTED='%196F'
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
-  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=$PRIMARY
   # Custom icon. Removed the icon for now
-  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
+  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
 
   ################################[ prompt_char: prompt symbol ]################################
   # Green prompt symbol if the last command succeeded.
@@ -216,7 +216,7 @@ CONFLICTED='%196F'
   # Home icon. $'\uf74b' for folder icon
   typeset -g POWERLEVEL9K_HOME_ICON=
   # Sub folder icon. Remove to return folder icon.
-  typeset -g POWERLEVEL9K_HOME_SUB_ICON=$'\uf74b' 
+  typeset -g POWERLEVEL9K_HOME_SUB_ICON=$'\uf74b'
   # Seeing what changes with this one
   typeset -g POWERLEVEL9K_FOLDER_ICON='HERE!'
   # Default current directory color.
