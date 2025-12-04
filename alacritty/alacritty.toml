@@ -1,5 +1,5 @@
-general.import = [
-    "~/.config/alacritty/themes/themes/tks.toml"
+import = [
+    "~/.config/alacritty/themes/themes/everforest_dark.toml"
 ]
 
 [cursor]
@@ -10,7 +10,7 @@ unfocused_hollow = true
 TERM = "alacritty"
 
 [font]
-size = 16
+size = 12
 
 [font.bold]
 family = "MesloLGS NF"
@@ -137,14 +137,10 @@ multiplier = 3
 [selection]
 save_to_clipboard = false
 
-[terminal.shell]
-program = "/bin/zsh"
-
 [window]
 decorations = "buttonless"
 
 [window.class]
-general = "Alacritty"
 instance = "Alacritty"
 
 [window.dimensions]
