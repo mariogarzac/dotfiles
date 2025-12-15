@@ -1,7 +1,0 @@
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.96
-export QT_SCALE_FACTOR=1.5
-export QT_FONT_DPI=140
-
-xrandr --output DP-1 --scale 1x1
-xrandr --dpi 140

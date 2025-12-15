@@ -191,7 +191,7 @@ CONFLICTED='%196F'
   # OS identifier color.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=$PRIMARY
   # Custom icon. Removed the icon for now
-  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
+  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=$'\uf31b'
 
   ################################[ prompt_char: prompt symbol ]################################
   # Green prompt symbol if the last command succeeded.

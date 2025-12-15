@@ -24,23 +24,23 @@ set $wm_color_border_inactive_bg     #3B4252
 set $wm_color_border_inactive_fg     #D8DEE9
 set $wm_color_background             #2E3440
 
-set $bar_setting_position            bottom
+set $bar_setting_position            top
 set $bar_setting_mode                dock
-set $bar_setting_font                pango:Source Sans Pro, Semibold 11
+set $bar_setting_font                pango:MesloLGS NF Regular 12
 set $bar_setting_separator           " | "
 set $bar_setting_statusCommand       i3status
 set $bar_setting_trayoutput          full
 
-set $bar_color_background            #3B4252
-set $bar_color_foreground            #D8DEE9
-set $bar_color_statusline            #D8DEE9
-set $bar_color_separator             #D8DEE9
+set $bar_color_background            #2D353B
+set $bar_color_foreground            #FFFFFF
+set $bar_color_statusline            #FFFFFF
+set $bar_color_separator             #DBBC7F
 
-set $bar_color_workspace_focused_bg  #A3BE8C
-set $bar_color_workspace_focused_fg  #2E3440
-set $bar_color_workspace_active_bg   #EBCB8B
-set $bar_color_workspace_active_fg   #2E3440
-set $bar_color_workspace_inactive_bg #BF616A
+set $bar_color_workspace_focused_bg  #A7C080
+set $bar_color_workspace_focused_fg  #425047
+set $bar_color_workspace_active_bg   #A7C080
+set $bar_color_workspace_active_fg   #7FBBB3
+set $bar_color_workspace_inactive_bg #425047
 set $bar_color_workspace_inactive_fg #2E3440
 set $bar_color_workspace_urgent_bg   #D08770
 set $bar_color_workspace_urgent_fg   #2E3440
@@ -61,10 +61,12 @@ exec_always --no-startup-id $wm_setting_app_background --bg-scale ~/repos/wallpa
 # Run a window compositor (for effects like transparency or full VSync)
 exec_always --no-startup-id $wm_setting_app_compositor --config ~/.config/picom/picom.conf
 
-### Settings ###
-exec --no-startup-id xinput set-prop 10 "libinput Natural Scrolling" 1
-exec --no-startup-id ~/.config/i3/set_resolution.sh
+# startup and workspace rules
+exec --no-startup-id alacritty
+for_window [class="alacritty"] move to workspace $ws2
 
+exec --no-startup-id $browser
+for_window [class="chromium"] move to workspace $ws3
 
 ### Workspaces ###
 # Define names for default workspaces for which we configure key bindings later on.
@@ -93,16 +95,16 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # Move focused container to workspace n
-bindsym $mod+$smod+1 move container to workspace $ws1
-bindsym $mod+$smod+2 move container to workspace $ws2
-bindsym $mod+$smod+3 move container to workspace $ws3
-bindsym $mod+$smod+4 move container to workspace $ws4
-bindsym $mod+$smod+5 move container to workspace $ws5
-bindsym $mod+$smod+6 move container to workspace $ws6
-bindsym $mod+$smod+7 move container to workspace $ws7
-bindsym $mod+$smod+8 move container to workspace $ws8
-bindsym $mod+$smod+9 move container to workspace $ws9
-bindsym $mod+$smod+0 move container to workspace $ws10
+bindsym $mod+$smod+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+$smod+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+$smod+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+$smod+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+$smod+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+$smod+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+$smod+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+$smod+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+$smod+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+$smod+0 move container to workspace $ws10; workspace $ws10
 
 ### Window sizes and positions ###
 # Cange focus
@@ -143,6 +145,8 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+bindsym $mod+Shift+c reload
 
 ### Gaps ###
 gaps horizontal $wm_setting_gap_width
@@ -209,3 +213,39 @@ bindsym $mod+$smod+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 ### Keys ###
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# catpuccin
+set $rosewater #f5e0dc
+set $flamingo  #f2cdcd
+set $pink      #f5c2e7
+set $mauve     #cba6f7
+set $red       #f38ba8
+set $maroon    #eba0ac
+set $peach     #fab387
+set $yellow    #f9e2af
+set $green     #a6e3a1
+set $teal      #94e2d5
+set $sky       #89dceb
+set $sapphire  #74c7ec
+set $blue      #89b4fa
+set $lavender  #b4befe
+set $text      #cdd6f4
+set $subtext1  #bac2de
+set $subtext0  #a6adc8
+set $overlay2  #9399b2
+set $overlay1  #7f849c
+set $overlay0  #6c7086
+set $surface2  #585b70
+set $surface1  #45475a
+set $surface0  #313244
+set $base      #1e1e2e
+set $mantle    #181825
+set $crust     #11111b
+
+# target                 title     bg    text      indicator    border
+client.focused           $mantle   $mauve $mantle  $rosewater $mauve
+client.focused_inactive  $overlay0 $base  $text    $rosewater $overlay0
+client.unfocused         $overlay0 $base  $text    $rosewater $overlay0
+client.urgent            $peach    $base  $peach   $overlay0  $peach
+client.placeholder       $overlay0 $base  $text    $overlay0  $overlay0
+client.background        $base
