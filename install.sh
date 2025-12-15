@@ -20,6 +20,8 @@ echo "Run prefix + I inside tmux to install packages"
 echo "Creating symbolic links..."
 ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
 ln -sf ~/.dotfiles/zsh/.tmux.conf ~/.tmux.conf
+ln -sf ~/.dotfiles/config/i3/config ~/.config/i3/config
+ln -sf ~/.dotfiles/config/display/.xsessionrc ~/.xsessionrc
 
 echo "Downloading go1.25.1 (might not be the latest version)..."
 wget https://go.dev/dl/go1.25.1.linux-amd64.tar.gz
@@ -31,9 +33,4 @@ sudo rm -rf /opt/nvim-linux-x86_64
 sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
 git clone https://github.com/mariogarzac/nvim ~/.config/nvim
 
-# sudo apt-get install zsh
-# sudo apt-get install tmux
-# sudo apt-get install ripgrep
-# sudo apt-get install clang
-# sudo apt-get install fzf
-# sudo apt-get install tree
+echo "sudo apt-get install zsh tmux ripgrep clang fzf tree feh rofi -y"
