@@ -1,0 +1,116 @@
+/*******************************************************************************
+ * ROFI SQUARED THEME USING THE EVERFOREST PALETTE
+ * User                 : LR-Tech
+ * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
+ *******************************************************************************/
+
+* {
+    font:   "MesloLGS Nerd Font Regular 12";
+
+    /*bg_dim*/
+    bgdark:  #232A2E;
+    /*bg0*/
+    bgalt:   #2D353B;
+    /*bg5*/
+    bggreen: #56635F;
+    /*Green*/
+    fg0:     #A7C080;
+
+    /*Green*/
+    accent-color:     #A7C080;
+    /*Yellow*/
+    urgent-color:     #DBBC7F;
+
+    background-color:   @bgalt;
+    text-color:         @fg0;
+}
+
+window {
+    location: center;
+    anchor: center;
+    // transparency: "screenshot";
+    padding: 15px;
+    border: 0px;
+    border-radius: 20px;
+
+    background-color: @bgalt;
+    spacing: 0;
+    children: [mainbox];
+    orientation: horizontal;
+}
+
+mainbox {
+    spacing: 0;
+    children: [ inputbar, message, listview ];
+}
+
+message {
+    color: @bggreen;
+    padding: 5px;
+    border-color: @fg0;
+    border: 0px 2px 2px 2px;
+    background-color: @bgdark;
+}
+
+inputbar {
+    color: @fg0;
+    padding: 11px;
+    background-color: @bgalt;
+
+    border: 1px;
+    border-radius: 3px 3px 0px 0px;
+    border-color: @bggreen;
+}
+
+entry, prompt, case-indicator {
+    text-font: inherit;
+    text-color:inherit;
+}
+
+prompt {
+    margin: 0px 1em 0em 0em ;
+}
+
+listview {
+    padding: 10px;
+    border-radius: 0px 0px 3px 3px;
+    border-color: @bggreen;
+    border: 0px 1px 1px 1px;
+    dynamic: false;
+}
+
+element {
+    padding: 3px;
+    vertical-align: 0.5;
+    border-radius: 3px;
+    background-color: @bgalt;
+    color: @fg0;
+    text-color: rgb(216, 222, 233);
+}
+
+element selected.normal {
+	background-color: @accent-color;
+	text-color: #2e3440;
+}
+
+element-text, element-icon {
+  size: 1em;
+  padding:10px;
+  background-color: inherit;
+  text-color:       inherit;
+}
+
+button {
+    padding: 6px;
+    color: @fg0;
+    horizontal-align: 0.5;
+
+    border: 2px 0px 2px 2px;
+    border-radius: 4px 0px 0px 4px;
+    border-color: @bggreen;
+}
+
+button selected normal {
+    border: 2px 0px 2px 2px;
+    border-color: @fg0;
+}
