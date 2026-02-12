@@ -1,8 +1,8 @@
 configuration {
   modes: "window,drun,run,ssh";
-	font: "mono 10";
+	font: "mono 12";
 	show-icons: false;
-  dpi: 140;
+  dpi: 92;
   timeout {
       action: "kb-cancel";
       delay:  0;

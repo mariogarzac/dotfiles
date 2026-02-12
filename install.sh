@@ -34,3 +34,10 @@ sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
 git clone https://github.com/mariogarzac/nvim ~/.config/nvim
 
 echo "sudo apt-get install zsh tmux ripgrep clang fzf tree feh rofi -y"
+
+sudo pacman -S tmux ripgrep clang fzf tree feh rofi -y
+sudo pacman -S clang
+sudo pacman -S base-devl
+sudo pacman -S base-devel
+sudo pacman -S glibc linux-api-headers gcc
+sudo pacman -S kde-cli-tools

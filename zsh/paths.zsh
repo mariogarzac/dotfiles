@@ -14,4 +14,4 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$PATH:/usr/local/go/bin:/opt/zen:/opt/nvim-linux-x86_64/bin"
+export PATH="$PATH:/usr/local/go/bin:/opt/zen:/opt/nvim-linux-x86_64/bin:$HOME/.local/bin"
