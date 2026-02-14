@@ -13,7 +13,7 @@ set $wm_setting_key_up               k
 set $wm_setting_key_right            l
 
 set $wm_setting_app_terminal         alacritty
-set $wm_setting_app_browser          firefox
+set $wm_setting_app_browser          zen
 set $wm_setting_app_launcher         rofi
 set $wm_setting_app_compositor       picom
 set $wm_setting_app_background       feh
@@ -62,8 +62,12 @@ exec_always --no-startup-id $wm_setting_app_bar
 # Run polybar
 exec --no-startup-id udiskie
 
-# Run blueman
+# Run blueman and nm-applet
 exec --no-startup-id blueman-applet
+exec --no-startup-id nm-applet
+
+# Initialize workspaces 1-6 so they always show in polybar
+exec --no-startup-id "i3-msg 'workspace 6; workspace 5; workspace 4; workspace 3; workspace 2; workspace 1'"
 
 ### Workspaces ###
 # Define names for default workspaces for which we configure key bindings later on.
@@ -81,8 +85,7 @@ set $ws10 "10"
 
 # startup and workspace rules
 assign [class="Alacritty"] $ws2
-assign [class="zen"] $ws3
-assign [class="Firefox"] $ws3
+assign [class="Zen"] $ws3
 assign [class="Obsidian"] $ws4
 assign [class="FreeCAD"] $ws5
 assign [class="Cura"] $ws5
@@ -196,10 +199,10 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 ### Volume controls ###
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 # # catpuccin
 # set $rosewater #f5e0dc
