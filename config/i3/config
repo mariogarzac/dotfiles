@@ -13,8 +13,9 @@ set $wm_setting_key_up               k
 set $wm_setting_key_right            l
 
 set $wm_setting_app_terminal         alacritty
-set $wm_setting_app_browser          zen
+set $wm_setting_app_browser          Zen
 set $wm_setting_app_launcher         rofi
+set $wm_setting_app_obsidian         Obsidian
 set $wm_setting_app_compositor       picom
 set $wm_setting_app_background       feh
 set $wm_setting_app_bar              ~/.config/i3/launch_polybar.sh
@@ -81,13 +82,14 @@ set $ws10 "10"
 
 # startup and workspace rules
 assign [class="Alacritty"] $ws2
-assign [class="Zen"] $ws3
-assign [class="Obsidian"] $ws4
+assign [class="zen"] $ws3
+assign [class="obsidian"] $ws4
 assign [class="FreeCAD"] $ws5
-assign [class="Cura"] $ws5
+assign [class="OrcaSlicer"] $ws5
 
 exec --no-startup-id $wm_setting_app_terminal
 exec --no-startup-id $wm_setting_app_browser
+exec --no-startup-id $wm_setting_app_obsidian
 
 # Switch to workspace n
 bindsym $mod+1 workspace $ws1

@@ -1,8 +1,10 @@
+@theme "everforest"
+
 configuration {
   modes: "window,drun,run,ssh";
-	font: "mono 12";
+	font: "mono 13";
 	show-icons: false;
-  dpi: 92;
+  dpi: 140;
   timeout {
       action: "kb-cancel";
       delay:  0;
@@ -12,4 +14,3 @@ configuration {
       sorting-method:    "name";
   }
 }
-@theme "everforest"
