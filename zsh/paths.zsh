@@ -1,6 +1,7 @@
 export EDITOR=nvim
 
 export XDG_USER_CONFIG_DIR=/home/mario/.config/
+export BROWSER=/usr/bin/firefox
 
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
