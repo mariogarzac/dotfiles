@@ -13,9 +13,9 @@ set $wm_setting_key_up               k
 set $wm_setting_key_right            l
 
 set $wm_setting_app_terminal         alacritty
-set $wm_setting_app_browser          Zen
+set $wm_setting_app_browser          firefox
 set $wm_setting_app_launcher         rofi
-set $wm_setting_app_obsidian         Obsidian
+set $wm_setting_app_obsidian         obsidian
 set $wm_setting_app_compositor       picom
 set $wm_setting_app_background       feh
 set $wm_setting_app_bar              ~/.config/i3/launch_polybar.sh
@@ -60,7 +60,7 @@ exec_always --no-startup-id $wm_setting_app_compositor --config ~/.config/picom/
 # Run polybar
 exec_always --no-startup-id $wm_setting_app_bar
 
-# Run polybar
+# Automount
 exec --no-startup-id udiskie
 
 # Run blueman and nm-applet
@@ -82,7 +82,7 @@ set $ws10 "10"
 
 # startup and workspace rules
 assign [class="Alacritty"] $ws2
-assign [class="zen"] $ws3
+assign [class="firefox"] $ws3
 assign [class="obsidian"] $ws4
 assign [class="FreeCAD"] $ws5
 assign [class="OrcaSlicer"] $ws5
@@ -192,6 +192,9 @@ bindsym $mod+$smod+r restart
 # Exit i3 (logs you out of your X session)
 bindsym $mod+$smod+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# Lock i3
+bindsym $mod+$smod+x exec /home/$USER/.config/i3scripts/lock
+
 ### Keys ###
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
@@ -201,39 +204,3 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDI
 bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-
-# # catpuccin
-# set $rosewater #f5e0dc
-# set $flamingo  #f2cdcd
-# set $pink      #f5c2e7
-# set $mauve     #cba6f7
-# set $red       #f38ba8
-# set $maroon    #eba0ac
-# set $peach     #fab387
-# set $yellow    #f9e2af
-# set $green     #a6e3a1
-# set $teal      #94e2d5
-# set $sky       #89dceb
-# set $sapphire  #74c7ec
-# set $blue      #89b4fa
-# set $lavender  #b4befe
-# set $text      #cdd6f4
-# set $subtext1  #bac2de
-# set $subtext0  #a6adc8
-# set $overlay2  #9399b2
-# set $overlay1  #7f849c
-# set $overlay0  #6c7086
-# set $surface2  #585b70
-# set $surface1  #45475a
-# set $surface0  #313244
-# set $base      #1e1e2e
-# set $mantle    #181825
-# set $crust     #11111b
-#
-# # target                 title     bg    text      indicator    border
-# client.focused           $mantle   $mauve $mantle  $rosewater $mauve
-# client.focused_inactive  $overlay0 $base  $text    $rosewater $overlay0
-# client.unfocused         $overlay0 $base  $text    $rosewater $overlay0
-# client.urgent            $peach    $base  $peach   $overlay0  $peach
-# client.placeholder       $overlay0 $base  $text    $overlay0  $overlay0
-# client.background        $base
