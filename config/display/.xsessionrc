@@ -1,8 +1,0 @@
-xinput set-prop 11 "libinput Natural Scrolling Enabled" 0
-xinput set-prop 11 "libinput Tapping Enabled" 1
-xinput set-prop 11 "libinput Accel Profile Enabled" 0, 1
-xinput set-prop 11 "libinput Scrolling Pixel Distance" 50
-xinput set-prop 11 "libinput Accel Speed" 0.5
-
-xrandr --output eDP-1 --mode 2560x1600
-xrandr --dpi 180
