@@ -4,22 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "7129004a923d41af",
+        "id": "f33e7a3361001446",
         "type": "tabs",
         "children": [
           {
-            "id": "2253d383c8588b74",
+            "id": "64024e0665247585",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Escalatro/escalatro_excalidraw.md"
+                "file": "Untitled.md",
+                "mode": "preview",
+                "source": true
               },
-              "icon": "excalidraw-icon",
-              "title": "escalatro_excalidraw"
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "f1f2cc5614e4ba05",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Projects/Budgeto/budgeto.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "budgeto"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -72,12 +89,12 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "e7a5b240a2b55c7a",
@@ -156,9 +173,19 @@
               "icon": "spreadsheet",
               "title": "Advanced Tables"
             }
+          },
+          {
+            "id": "c73dd405e7df4cdd",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "calendar"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -167,65 +194,72 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": true,
       "command-palette:Open command palette": true,
-      "table-editor-obsidian:Advanced Tables Toolbar": true,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
       "obsidian-excalidraw-plugin:New drawing": false,
-      "obsidian-kanban:Create new board": false
+      "obsidian-kanban:Create new board": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "2253d383c8588b74",
+  "active": "f1f2cc5614e4ba05",
   "lastOpenFiles": [
-    "_resources/Pasted Image 20250622184758_198.png",
-    "Escalatro/escalatro_excalidraw.md",
-    "_resources/Pasted Image 20250615130420_481.png",
-    "Excalidraw/zehirs_dungeon.md",
-    "Excalidraw/pata-app.md",
-    "Excalidraw/maps.md",
-    "Excalidraw/Drawing 2025-03-05 14.37.15.excalidraw.md",
-    "Escalatro/Escalatro_kanban.md",
-    "Webapp.md",
-    "Untitled.md",
-    "Escalatro",
-    "Projects/Budgeto/Budgeto_excalidraw.md",
-    "_resources/Pasted Image 20250604211402_621.png",
-    "_resources/Pasted Image 20250604211320_450.png",
-    "_resources/Pasted Image 20250604211248_631.png",
-    "_resources/Pasted Image 20250604211212_351.png",
-    "_resources/Pasted Image 20250604211152_213.png",
-    "_resources/Pasted Image 20250602111213_318.png",
-    "_resources/Pasted Image 20250528100136_616.png",
-    "_resources/Pasted Image 20250528100121_472.png",
-    "_resources/Pasted Image 20250528100100_275.png",
-    "DND/Campagins/DM Screen.canvas",
-    "DND/Characters/Old-school-dnd-dwarf.md",
-    "DND/Characters/PCs/CoS Character Stats.md",
-    "DND/Characters/Falkrest Fountain.md",
-    "Daily/02-07-2024.md",
-    "Cheat Sheet/Kubernetes/Kubernetes.md",
-    "Library/The Kubernetes Book/The Kubernetes Books.md",
-    "Library/The Kubernetes Book/The Kubernetes Book (Nigel Poulton).pdf",
-    "Library/Docker Deep Dive/Part 2.md",
-    "Library/The Kubernetes Book",
-    "Cheat Sheet/Docker/Dockerfile.md",
-    "Library/Docker Deep Dive/Part 1.md",
-    "Cheat Sheet/Kubernetes/K8s.md",
-    "Cheat Sheet/Docker/Docker Essential Training.md",
-    "Cheat Sheet/Tailscale/TS.md",
-    "Cheat Sheet/Tailscale/Tailscale.md",
-    "Library/Snowflake Definitive Guide/Review.md",
-    "Library/Snowflake Definitive Guide/Snowflake Udemy.md",
-    "Library/Snowflake Definitive Guide/Notes/Snowflake.md",
-    "Library/Snowflake Definitive Guide/Snowflake-The-Definitive-Guide-1.pdf",
-    "Library/Snowflake Definitive Guide/PDFs/snowproexamcheatsheet-200202121304.pdf",
-    "Library/Snowflake Definitive Guide/PDFs/snowflakesnowprocorecertcheatsheet-221230103030-aced1ac2.pdf",
-    "Library/Snowflake Definitive Guide/PDFs/snowflakeessentials-191020061227.pdf",
-    "Library/Snowflake Definitive Guide/PDFs/Snowflake_free_trial_LabGuide.pdf",
-    "Library/Snowflake Definitive Guide/PDFs",
-    "Net/Level Up"
+    "Projects/Budgeto",
+    "DnD/Call of the Netherdeep.md",
+    "DnD/DM Screen.canvas",
+    "Excalidraw/excelify.md",
+    "Excalidraw/canvas.md",
+    "Misc/dog_training_plan.md",
+    "Misc/Templates/DailyNote.md",
+    "Projects/Budgeto/budgeto.md",
+    "Money Log.md",
+    "Untitled 2.base",
+    "Untitled 3.base",
+    "Untitled.canvas",
+    "Untitled 1.canvas",
+    "Untitled 1.base",
+    "Untitled.base",
+    "Excalidraw/Drawing 2026-03-19 22.05.52.excalidraw.md",
+    "DnD/call-of-the-netherdeep.pdf",
+    "_resources/Pasted image 20260215190537.png",
+    "_resources/Pasted image 20260215185937.png",
+    "_resources/Pasted image 20260215170152.png",
+    "_resources/Pasted image 20260215165742.png",
+    "_resources/Pasted image 20260215165651.png",
+    "_resources/Pasted image 20260215165643.png",
+    "_resources/Pasted image 20260215165619.png",
+    "_resources/Pasted image 20260215165506.png",
+    "_resources/Pasted image 20260215164507.png",
+    "_resources/Pasted image 20260215164438.png",
+    "DnD/Emerald Grotto.md",
+    "Cheat Sheet/Azure/Minecraft Server.md",
+    "Excalidraw/Drawing 2026-01-02 10.55.57.excalidraw.md",
+    "Daily/2025-12-30.md",
+    "Daily/2025-12-29.md",
+    "Daily/2025-12-28.md",
+    "Daily/2025-12-26.md",
+    "Daily/2025-12-25.md",
+    "Daily/2025-12-19.md",
+    "Daily/2025-12-17.md",
+    "Azure Client Secrets.md",
+    "DnD/monsters/Zombie.md",
+    "DnD/monsters/YoungWhiteDragon.md",
+    "DnD/monsters/YoungSilverDragon.md",
+    "DnD/monsters/YoungRedDragon.md",
+    "DnD/monsters/YoungGreenDragon.md",
+    "DnD/monsters/YoungGoldDragon.md",
+    "DnD/monsters",
+    "DnD",
+    "monsters",
+    "Library/MLOps/file.txt",
+    "Projects/Epicor",
+    "Projects/Inside-Job/inside-job.canvas",
+    "Projects/Budgeto/Budgeto_canvas.canvas",
+    "DND/Campagins/DM Screen.canvas"
   ]
 }

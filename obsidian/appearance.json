@@ -1,14 +1,12 @@
 {
-  "cssTheme": "Minimal",
+  "cssTheme": "Everforest",
   "accentColor": "#7c98d0",
   "baseFontSize": 18,
   "enabledCssSnippets": [
-    "headings",
-    "center",
-    "minimal",
-    "tab-space"
+    "center"
   ],
-  "showViewHeader": false,
-  "showRibbon": false,
-  "theme": "obsidian"
+  "showViewHeader": true,
+  "showRibbon": true,
+  "theme": "obsidian",
+  "nativeMenus": true
 }

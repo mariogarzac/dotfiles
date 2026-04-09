@@ -60,36 +60,6 @@
       "key": "K"
     }
   ],
-  "app:go-back": [
-    {
-      "modifiers": [
-        "Mod",
-        "Alt"
-      ],
-      "key": "ArrowLeft"
-    },
-    {
-      "modifiers": [
-        "Ctrl"
-      ],
-      "key": "O"
-    }
-  ],
-  "app:go-forward": [
-    {
-      "modifiers": [
-        "Mod",
-        "Alt"
-      ],
-      "key": "ArrowRight"
-    },
-    {
-      "modifiers": [
-        "Ctrl"
-      ],
-      "key": "I"
-    }
-  ],
   "editor:toggle-checklist-status": [],
   "markdown:toggle-preview": [
     {
@@ -98,5 +68,6 @@
       ],
       "key": "L"
     }
-  ]
+  ],
+  "editor:insert-link": []
 }

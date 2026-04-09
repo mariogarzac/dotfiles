@@ -82,8 +82,8 @@ tags
 nvim/plugin/packer_compiled.lua
 
 # obsidian
-themes
-plugins
+themes/
+plugins/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,vim
 
