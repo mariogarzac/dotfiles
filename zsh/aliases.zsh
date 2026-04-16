@@ -13,7 +13,9 @@ alias c="clear"
 
 # tools
 alias tt="tmux attach"
-alias k="kubectl"
 alias d="docker"
 alias mk="minikube"
+alias k="kubectl"
+alias krr="kubectl rollout restart deployment -n"
+alias krs="kubectl rollout status deployment -n"
 

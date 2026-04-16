@@ -13,7 +13,7 @@ function tm(){
 }
 
 function fd(){
-    selected_dir=$(find ~/repos ~/.dotfiles /mnt/c/Users/mario.garza/Documents/ -type d \( \
+    selected_dir=$(find ~/repos ~/.dotfiles /mnt/c/Users/mario.garza/Downloads/ /mnt/c/Users/mario.garza/Documents/ -type d \( \
         -name '.obsidian' \
         -o -name 'Obsidian' \
         -o -name '.git' \

@@ -22,3 +22,4 @@ ln -sf ~/.dotfiles/zsh/.tmux.conf ~/.tmux.conf
 # sudo apt-get install tmux
 # sudo apt-get install zsh
 # sudo apt-get install ripgrep
+# sudo apt-get install zsh
