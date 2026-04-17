@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start</title>
+  <style>
+    /* Base values — overwritten at runtime by config.js colors */
+    :root {
+      --bg:       #2D353B;
+      --bg-dark:  #232A2E;
+      --bg-mid:   #343F44;
+      --bg-soft:  #3D484D;
+      --fg:       #D3C6AA;
+      --fg-muted: #7A8478;
+      --cyan:     #83C092;
+      --accent:   #83C092;
+      --accent-tint: rgba(131,192,146,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Georgia", "Charter", serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    /* ── Page shell ── */
+    .page {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      width: 100%;
+    }
+
+    /* ── Header: greeting (left) + search (right) ── */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .greeting { flex-shrink: 0; }
+
+    .greeting h1 {
+      font-size: 2rem;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+    }
+
+    .greeting p {
+      margin-top: 0.35rem;
+      font-size: 0.95rem;
+      color: var(--fg-muted);
+      font-style: italic;
+    }
+
+    /* ── Search ── */
+    .search { flex: 1; display: flex; }
+
+    .search input {
+      width: 100%;
+      background: var(--bg-dark);
+      border: 1px solid var(--bg-soft);
+      border-radius: 8px;
+      padding: 0.65rem 1rem;
+      color: var(--fg);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .search input::placeholder { color: var(--fg-muted); }
+    .search input:focus { border-color: var(--cyan); }
+
+    /* ── Content row: grid + frame ── */
+    .content {
+      display: flex;
+      align-items: stretch;
+      gap: 1.2rem;
+    }
+
+    /* ── Bookmark grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      flex: 1;
+      min-width: 560px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--bg-dark);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid var(--bg-soft);
+      transition: border-color 0.15s;
+    }
+
+    .card:hover { border-color: var(--fg-muted); }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .card-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: var(--accent);
+    }
+
+    .card-title {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .links { list-style: none; display: flex; flex-direction: column; }
+
+    .links li + li a { border-top: 1px solid var(--bg-mid); }
+
+    .links li a {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.92rem;
+      padding: 0.25rem 0;
+      transition: color 0.12s;
+    }
+
+    .links li a:hover .label { color: var(--accent); }
+
+    .links li a .icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+      font-style: normal;
+      background: var(--accent-tint);
+    }
+
+    .links li a .label { flex: 1; }
+
+    .links li a .domain {
+      font-size: 0.72rem;
+      color: var(--fg-muted);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* ── Bird frame ── */
+    .frame-wrap {
+      flex-shrink: 0;
+      flex-grow: 0;
+      display: flex;
+    }
+
+    .frame {
+      width: 400px;
+      border-radius: 10px;
+      border: 2px solid var(--cyan);
+      overflow: hidden;
+      background: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      cursor: pointer;
+    }
+
+    /* bird image fills all available space above the info panel */
+    .bird-img-wrap {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .bird-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      /* Everforest tint: darken + desaturate + slight warm sepia */
+      filter: brightness(0.72) saturate(0.75) sepia(0.18);
+      transition: opacity 0.4s ease;
+    }
+
+    /* gradient fade into the info panel below */
+    .bird-img-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(transparent, var(--bg-dark));
+      pointer-events: none;
+    }
+
+    /* placeholder shown when no image or loading */
+    .bird-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 90%, #1a2820 0%, transparent 70%),
+        linear-gradient(180deg, #1C2B35 0%, #243040 30%, #2D4030 60%, #1E3020 100%);
+    }
+
+    .bird-placeholder span {
+      color: var(--fg-muted);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      opacity: 0.45;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Bird info panel ── */
+    .bird-info {
+      background: var(--bg-dark);
+      padding: 0.85rem 1rem 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      border-top: 1px solid var(--bg-mid);
+    }
+
+    .bird-info .bird-name {
+      font-size: 1rem;
+      font-weight: normal;
+      color: var(--fg);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bird-info .bird-sci {
+      font-size: 0.78rem;
+      color: var(--fg-muted);
+      font-style: italic;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bird-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.15rem;
+      flex-wrap: wrap;
+    }
+
+    .bird-status {
+      font-size: 0.65rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      border: 1px solid currentColor;
+    }
+
+    .bird-tag {
+      font-size: 0.72rem;
+      color: var(--fg-muted);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .bird-tag + .bird-tag::before {
+      content: '·';
+      margin-right: 0.5rem;
+    }
+
+    /* refresh hint shown on hover */
+    .frame-hint {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.7rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+
+    .frame:hover .frame-hint { opacity: 0.55; }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="header">
+      <div class="greeting">
+        <h1 id="greeting-text"></h1>
+        <p id="date-text"></p>
+      </div>
+      <form class="search" id="search-form" action="https://duckduckgo.com/" method="get" target="_self">
+        <input type="text" name="q" id="search-input" placeholder="search duckduckgo..." autocomplete="off" spellcheck="false" />
+      </form>
+    </div>
+
+    <div class="content">
+
+      <div class="grid" id="grid"></div>
+
+      <div class="frame-wrap">
+        <div class="frame" id="frame">
+          <span class="frame-hint">new bird</span>
+
+          <div class="bird-img-wrap" id="bird-img-wrap">
+            <div class="bird-placeholder" id="bird-placeholder">
+              <span id="bird-placeholder-text">add api key<br>to config.js</span>
+            </div>
+          </div>
+
+          <div class="bird-info" id="bird-info" style="display:none">
+            <span class="bird-name" id="bird-name"></span>
+            <span class="bird-sci"  id="bird-sci"></span>
+            <div class="bird-meta"  id="bird-meta"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="config.js"></script>
+  <script>
+    const C = window.CONFIG;
+
+    // ── Apply colors ─────────────────────────────────────────────────────────
+    const colorMap = {
+      bg: '--bg', bgDark: '--bg-dark', bgMid: '--bg-mid', bgSoft: '--bg-soft',
+      fg: '--fg', fgMuted: '--fg-muted', cyan: '--cyan',
+    };
+    const root = document.documentElement;
+    for (const [key, cssVar] of Object.entries(colorMap)) {
+      if (C.colors[key]) root.style.setProperty(cssVar, C.colors[key]);
+    }
+
+    // ── Greeting + date ───────────────────────────────────────────────────────
+    function getGreeting() {
+      const h = new Date().getHours();
+      if (h >= 5  && h < 12) return C.greetings.morning;
+      if (h >= 12 && h < 17) return C.greetings.afternoon;
+      if (h >= 17 && h < 21) return C.greetings.evening;
+      return C.greetings.night;
+    }
+
+    document.getElementById('greeting-text').textContent = getGreeting();
+    document.getElementById('date-text').textContent =
+      new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
+      + ' \u2014 settle in.';
+
+    // ── Render bookmark cards ─────────────────────────────────────────────────
+    function hexToRgba(hex, alpha) {
+      const r = parseInt(hex.slice(1,3), 16);
+      const g = parseInt(hex.slice(3,5), 16);
+      const b = parseInt(hex.slice(5,7), 16);
+      return `rgba(${r},${g},${b},${alpha})`;
+    }
+
+    function getDomain(url) {
+      try { return new URL(url).hostname.replace('www.', ''); }
+      catch { return ''; }
+    }
+
+    const grid = document.getElementById('grid');
+
+    C.sections.forEach(section => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.style.setProperty('--accent', section.accent);
+      card.style.setProperty('--accent-tint', hexToRgba(section.accent, 0.15));
+
+      const linksHtml = section.links.map(link => `
+        <li>
+          <a href="${link.url}">
+            <span class="icon">${link.icon}</span>
+            <span class="label">${link.label}</span>
+            <span class="domain">${getDomain(link.url)}</span>
+          </a>
+        </li>
+      `).join('');
+
+      card.innerHTML = `
+        <div class="card-header">
+          <span class="card-dot"></span>
+          <span class="card-title">${section.name}</span>
+        </div>
+        <ul class="links">${linksHtml}</ul>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    // ── Bird frame ────────────────────────────────────────────────────────────
+    const STATUS_COLORS = {
+      'low concern':      '#A7C080',
+      'least concern':    '#A7C080',
+      'near threatened':  '#DBBC7F',
+      'vulnerable':       '#E69875',
+      'threatened':       '#E69875',
+      'endangered':       '#E67E80',
+      'critically endangered': '#E67E80',
+    };
+
+    function statusColor(status) {
+      if (!status) return '#7A8478';
+      return STATUS_COLORS[status.toLowerCase()] || '#7A8478';
+    }
+
+    function formatWingspan(bird) {
+      if (bird.wingspanMin && bird.wingspanMax)
+        return `${bird.wingspanMin}–${bird.wingspanMax} cm wingspan`;
+      return null;
+    }
+
+    function displayBird(bird) {
+      const wrap      = document.getElementById('bird-img-wrap');
+      const info      = document.getElementById('bird-info');
+      const nameEl    = document.getElementById('bird-name');
+      const sciEl     = document.getElementById('bird-sci');
+      const metaEl    = document.getElementById('bird-meta');
+      const placeholder = document.getElementById('bird-placeholder');
+
+      // image
+      const imgUrl = bird.images && bird.images[0];
+      if (imgUrl) {
+        placeholder.style.display = 'none';
+        let img = wrap.querySelector('img.bird-img');
+        if (!img) {
+          img = document.createElement('img');
+          img.className = 'bird-img';
+          img.alt = bird.name || 'Bird';
+          wrap.appendChild(img);
+        }
+        img.style.opacity = '0';
+        img.onload = () => { img.style.opacity = '1'; };
+        img.src = imgUrl;
+      } else {
+        placeholder.style.display = '';
+        document.getElementById('bird-placeholder-text').textContent = 'no image available';
+      }
+
+      // info panel
+      nameEl.textContent = bird.name || '—';
+      sciEl.textContent  = bird.sciName || '';
+
+      metaEl.innerHTML = '';
+
+      if (bird.status) {
+        const badge = document.createElement('span');
+        badge.className = 'bird-status';
+        badge.textContent = bird.status;
+        badge.style.color = statusColor(bird.status);
+        metaEl.appendChild(badge);
+      }
+
+      const tags = [
+        bird.family,
+        formatWingspan(bird),
+        bird.region && bird.region.length ? bird.region[0] : null,
+      ].filter(Boolean);
+
+      tags.forEach(text => {
+        const tag = document.createElement('span');
+        tag.className = 'bird-tag';
+        tag.textContent = text;
+        metaEl.appendChild(tag);
+      });
+
+      info.style.display = '';
+    }
+
+    function setBirdError(msg) {
+      document.getElementById('bird-placeholder-text').textContent = msg;
+      document.getElementById('bird-placeholder').style.display = '';
+    }
+
+    let birdTotal = null;
+
+    async function loadBird() {
+      const key = C.bird && C.bird.apiKey;
+      if (!key) return;
+
+      document.getElementById('bird-placeholder-text').textContent = 'loading…';
+
+      try {
+        const headers = { 'api-key': key };
+        const base = 'https://nuthatch.lastelm.software/v2/birds';
+
+        // Fetch the real filtered total once, then cache it
+        if (!birdTotal) {
+          const countRes = await fetch(`${base}?pageSize=1&page=1&hasImg=true`, { headers });
+          if (!countRes.ok) {
+            setBirdError(countRes.status === 401 ? 'invalid api key' : 'api error');
+            return;
+          }
+          birdTotal = (await countRes.json()).total;
+        }
+
+        const randomPage = Math.floor(Math.random() * birdTotal) + 1;
+        const res = await fetch(`${base}?pageSize=1&page=${randomPage}&hasImg=true`, { headers });
+
+        if (!res.ok) { setBirdError('api error'); return; }
+
+        const bird = (await res.json()).entities?.[0];
+        if (!bird) { setBirdError('no bird found'); return; }
+
+        displayBird(bird);
+
+      } catch (err) {
+        setBirdError('could not reach api');
+      }
+    }
+
+    loadBird();
+
+    document.getElementById('frame').addEventListener('click', loadBird);
+
+    // ── Search autofocus ──────────────────────────────────────────────────────
+    document.getElementById('search-input').focus();
+  </script>
+
+</body>
+</html>
