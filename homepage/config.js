@@ -26,48 +26,47 @@ window.CONFIG = {
     apiKey: "4381dda5-a1ae-4a19-b182-9f10e8209b13",
   },
 
+  // ── Icons ─────────────────────────────────────────────────────────────────
+  // true: show favicons fetched via Google's favicon API
+  // false: hide icons
+  favicons: true,
+
   // ── Bookmark sections ─────────────────────────────────────────────────────
-  // accent: any hex color — used for the dot, icon tint, and link hover
-  // icon: any character or emoji shown next to each link
+  // accent: any hex color — used for the dot and link hover
   sections: [
     {
       name: "Code",
       accent: "#7FBBB3",
       links: [
-        { label: "GitHub",           icon: "⌥",  url: "https://github.com" },
-        { label: "Claude",           icon: "◆",  url: "https://claude.ai" },
-        { label: "Apple Dev Docs",   icon: "⌘",  url: "https://developer.apple.com/documentation" },
-        { label: "Hacker News",      icon: "▲",  url: "https://news.ycombinator.com" },
+        { label: "GitHub",         url: "https://github.com" },
+        { label: "Claude",         url: "https://claude.ai" },
+        { label: "Escalatro",      url: "http://localhost:3030/" },
       ],
     },
     {
       name: "Entertainment",
       accent: "#D699B6",
       links: [
-        { label: "YouTube",  icon: "▶",  url: "https://youtube.com" },
-        { label: "Reddit",   icon: "○",  url: "https://reddit.com" },
-        { label: "Netflix",  icon: "N",  url: "https://netflix.com" },
-        { label: "Spotify",  icon: "♪",  url: "https://open.spotify.com" },
+        { label: "YouTube", url: "https://youtube.com" },
+        { label: "Reddit",  url: "https://reddit.com" },
+        { label: "Netflix", url: "https://netflix.com" },
       ],
     },
     {
       name: "News",
       accent: "#DBBC7F",
       links: [
-        { label: "Semafor",     icon: "◉",  url: "https://www.semafor.com" },
-        { label: "Hacker News", icon: "▲",  url: "https://news.ycombinator.com" },
-        { label: "404 Media",   icon: "⚡", url: "https://www.404media.co" },
-        { label: "The Verge",   icon: "V",  url: "https://www.theverge.com" },
+        { label: "Semafor",     url: "https://www.semafor.com" },
+        { label: "Hacker News", url: "https://news.ycombinator.com" },
+        { label: "Telokwento",   url: "https://www.telokwento.com/" },
       ],
     },
     {
       name: "Board Games",
       accent: "#A7C080",
       links: [
-        { label: "BoardGameGeek",      icon: "⬡",  url: "https://boardgamegeek.com" },
-        { label: "Board Game Arena",   icon: "♟",  url: "https://boardgamearena.com" },
-        { label: "r/boardgames",       icon: "○",  url: "https://www.reddit.com/r/boardgames" },
-        { label: "Shut Up & Sit Down", icon: "★",  url: "https://www.shutupandsitdown.com" },
+        { label: "Earthborne Rangers", url: "https://thelivingvalley.earthbornegames.com/docs/category/lure-of-the-valley/" },
+        { label: "D&D Beyond",         url: "https://www.dndbeyond.com/en" },
       ],
     },
   ],

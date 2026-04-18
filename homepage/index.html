@@ -148,16 +148,21 @@
     .links li a:hover .label { color: var(--accent); }
 
     .links li a .icon {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
       flex-shrink: 0;
-      font-style: normal;
       background: var(--accent-tint);
+      overflow: hidden;
+    }
+
+    .links li a .icon img {
+      width: 14px;
+      height: 14px;
+      object-fit: contain;
     }
 
     .links li a .label { flex: 1; }
@@ -405,15 +410,21 @@
       card.style.setProperty('--accent', section.accent);
       card.style.setProperty('--accent-tint', hexToRgba(section.accent, 0.15));
 
-      const linksHtml = section.links.map(link => `
+      const linksHtml = section.links.map(link => {
+        const domain = getDomain(link.url);
+        const iconHtml = C.favicons
+          ? `<img src="https://www.google.com/s2/favicons?domain=${domain}&sz=32" alt="" />`
+          : '';
+        return `
         <li>
           <a href="${link.url}">
-            <span class="icon">${link.icon}</span>
+            <span class="icon">${iconHtml}</span>
             <span class="label">${link.label}</span>
-            <span class="domain">${getDomain(link.url)}</span>
+            <span class="domain">${domain}</span>
           </a>
         </li>
-      `).join('');
+        `;
+      }).join('');
 
       card.innerHTML = `
         <div class="card-header">
