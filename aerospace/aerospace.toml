@@ -1,7 +1,6 @@
 start-at-login = true
 
 automatically-unhide-macos-hidden-apps = false
-on-focus-changed = "move-mouse window-lazy-center"
 
 [gaps]
 inner.horizontal = 8
@@ -13,10 +12,6 @@ outer.bottom = 8
 
 # Switch to workspace
 [mode.main.binding]
-alt-f = 'fullscreen'
-alt-slash = 'layout tiles horizontal vertical'
-alt-comma = 'layout accordion horizontal vertical'
-
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
@@ -54,9 +49,11 @@ alt-shift-semicolon = 'mode service'
 
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
-    r = ['flatten-workspace-tree', 'mode main'] # reset layout
-    f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
-    backspace = ['close-all-windows-but-current', 'mode main']
+    r = ['flatten-workspace-tree', 'mode main']
+    t = ['layout floating tiling', 'mode main']
+    f = ['fullscreen', 'mode main']
+    slash = ['layout tiles horizontal vertical', 'mode main']
+    comma = ['layout accordion horizontal vertical', 'mode main']
 
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
@@ -75,6 +72,10 @@ if.app-id = 'md.obsidian'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
+if.app-id = 'com.apple.Preview'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
 if.app-id = 'com.postmanlabs.mac'
 run = 'move-node-to-workspace 4'
 
@@ -84,16 +85,16 @@ run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = 'move-node-to-workspace 5'
-
-[[on-window-detected]]
-if.app-id = 'com.orcaslicer.OrcaSlicer'
-run = 'move-node-to-workspace 6'
-
-[[on-window-detected]]
-if.app-id = 'com.autodesk.fusion360'
 run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
 if.app-id = 'com.valvesoftware.steam'
 run = 'move-node-to-workspace 7'
+
+[[on-window-detected]]
+if.app-id = 'com.orcaslicer.OrcaSlicer'
+run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
+if.app-id = 'com.autodesk.fusion360'
+run = 'move-node-to-workspace 8'

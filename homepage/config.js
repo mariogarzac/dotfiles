@@ -38,9 +38,10 @@ window.CONFIG = {
       name: "Code",
       accent: "#7FBBB3",
       links: [
-        { label: "GitHub",         url: "https://github.com" },
-        { label: "Claude",         url: "https://claude.ai" },
-        { label: "Escalatro",      url: "http://localhost:3030/" },
+        { label: "GitHub",    url: "https://github.com" },
+        { label: "Claude",    url: "https://claude.ai" },
+        { label: "Escalatro", url: "http://localhost:3030/" },
+        { label: "Figma",     url: "https://www.figma.com/design/VuiSkmISTmYq9afwqgJULi/Escalatro-Web-App?node-id=0-1&p=f&t=sqLh4CF5dIiJG6EJ-0" },
       ],
     },
     {
@@ -58,7 +59,7 @@ window.CONFIG = {
       links: [
         { label: "Semafor",     url: "https://www.semafor.com" },
         { label: "Hacker News", url: "https://news.ycombinator.com" },
-        { label: "Telokwento",   url: "https://www.telokwento.com/" },
+        { label: "Telokwento",  url: "https://www.telokwento.com/" },
       ],
     },
     {
