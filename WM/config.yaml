@@ -120,19 +120,19 @@ window_behavior:
       shown_on_top: false
 
 workspaces:
-  - name: 'Teams'
+  - name: '1'
     bind_to_monitor: 0
-  - name: 'Terminal'
+  - name: '2'
     bind_to_monitor: 0
-  - name: 'Browser'
+  - name: '3'
     bind_to_monitor: 0
-  - name: 'Utility'
+  - name: '4'
     bind_to_monitor: 0
-  - name: 'Mail'
+  - name: '5'
     bind_to_monitor: 0
-  - name: 'Office'
+  - name: '6'
     bind_to_monitor: 0
-  - name: 'Spotify'
+  - name: '7'
     bind_to_monitor: 0
   - name: '8'
     bind_to_monitor: 0
@@ -141,41 +141,45 @@ workspaces:
 
 window_rules:
   # Teams
-  - commands: ["toggle-tiling", "move --workspace Teams"]
+  - commands: ["toggle-tiling", "move --workspace 1"]
     match:
-      - window_process: { regex: "msteams|Microsoft Teams|Teams" }
+      - window_process: { regex: "msteams" }
   # Terminal
-  - commands: ["toggle-tiling", "move --workspace Terminal"]
+  - commands: ["toggle-tiling", "move --workspace 2"]
     match:
       - window_process: { regex: "Terminal" }
   # Browser
-  - commands: ["toggle-tiling", "move --workspace Browser"]
+  - commands: ["toggle-tiling", "move --workspace 3"]
     match:
-      - window_process: { regex: "msedge|edge|Microsoft Edge" }
+      - window_process: { regex: "msedge" }
   # Postman
-  - commands: ["toggle-tiling", "move --workspace Utility"]
+  - commands: ["toggle-tiling", "move --workspace 4"]
     match:
       - window_process: { regex: "Postman" }
   # Obsidian
-  - commands: ["toggle-tiling", "move --workspace Utility"]
+  - commands: ["toggle-tiling", "move --workspace 4"]
     match:
       - window_process: { regex: "Obsidian" }
     # Mail
-  - commands: ["toggle-tiling", "move --workspace Mail"]
+  - commands: ["toggle-tiling", "move --workspace 5"]
     match:
-      - window_process: { regex: "(?i)OUTLOOK|olk" }
+      - window_process: { regex: "olk" }
   # Word
-  - commands: ["toggle-tiling", "move --workspace Office"]
+  - commands: ["toggle-tiling", "move --workspace 6"]
     match:
       - window_process: { regex: "(?i)WINWORD" }
   # Excel
-  - commands: ["toggle-tiling", "move --workspace Office"]
+  - commands: ["toggle-tiling", "move --workspace 6"]
     match:
       - window_process: { regex: "EXCEL" }
-  # Spotify
-  - commands: ["move --workspace Spotify"]
+  # RDCMan
+  - commands: ["move --workspace 7"]
     match:
-      - window_process: { regex: "[sS]potify" }
+      - window_process: { regex: "RDCMan" }
+  # StorageExplorer
+  - commands: ["move --workspace 7"]
+    match:
+      - window_process: { regex: "StorageExplorer" }
 
   - commands: ['ignore']
     match:
@@ -316,19 +320,19 @@ keybindings:
     bindings: ['alt+d']
 
   # Change focus to a workspace defined in `workspaces` config.
-  - commands: ['focus --workspace Teams']
+  - commands: ['focus --workspace 1']
     bindings: ['alt+1']
-  - commands: ['focus --workspace Terminal']
+  - commands: ['focus --workspace 2']
     bindings: ['alt+2']
-  - commands: ['focus --workspace Browser']
+  - commands: ['focus --workspace 3']
     bindings: ['alt+3']
-  - commands: ['focus --workspace Utility']
+  - commands: ['focus --workspace 4']
     bindings: ['alt+4']
-  - commands: ['focus --workspace Mail']
+  - commands: ['focus --workspace 5']
     bindings: ['alt+5']
-  - commands: ['focus --workspace Office']
+  - commands: ['focus --workspace 6']
     bindings: ['alt+6']
-  - commands: ['focus --workspace Spotify']
+  - commands: ['focus --workspace 7']
     bindings: ['alt+7']
   - commands: ['focus --workspace 8']
     bindings: ['alt+8']
@@ -347,19 +351,19 @@ keybindings:
     bindings: ['alt+shift+s']
 
   # Move focused window to a workspace defined in `workspaces` config.
-  - commands: ['move --workspace Teams', 'focus --workspace Teams']
+  - commands: ['move --workspace 1', 'focus --workspace 1']
     bindings: ['alt+shift+1']
-  - commands: ['move --workspace Terminal', 'focus --workspace Terminal']
+  - commands: ['move --workspace 2', 'focus --workspace 2']
     bindings: ['alt+shift+2']
-  - commands: ['move --workspace Browser', 'focus --workspace Browser']
+  - commands: ['move --workspace 3', 'focus --workspace 3']
     bindings: ['alt+shift+3']
-  - commands: ['move --workspace Utility', 'focus --workspace Utility']
+  - commands: ['move --workspace 4', 'focus --workspace 4']
     bindings: ['alt+shift+4']
-  - commands: ['move --workspace Mail', 'focus --workspace Mail']
+  - commands: ['move --workspace 5', 'focus --workspace 5']
     bindings: ['alt+shift+5']
-  - commands: ['move --workspace Office', 'focus --workspace Office']
+  - commands: ['move --workspace 6', 'focus --workspace 6']
     bindings: ['alt+shift+6']
-  - commands: ['move --workspace Spotify', 'focus --workspace Spotify']
+  - commands: ['move --workspace 7', 'focus --workspace 7']
     bindings: ['alt+shift+7']
   - commands: ['move --workspace 8', 'focus --workspace 8']
     bindings: ['alt+shift+8']
