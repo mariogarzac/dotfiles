@@ -68,6 +68,8 @@ window.CONFIG = {
       links: [
         { label: "Earthborne Rangers", url: "https://thelivingvalley.earthbornegames.com/docs/category/lure-of-the-valley/" },
         { label: "D&D Beyond",         url: "https://www.dndbeyond.com/en" },
+        { label: "Makerworld",         url: "https://makerworld.com/en" },
+        { label: "Thingiverse",         url: "https://www.thingiverse.com/" },
       ],
     },
   ],
