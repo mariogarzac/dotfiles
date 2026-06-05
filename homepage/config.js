@@ -48,9 +48,10 @@ window.CONFIG = {
       name: "Entertainment",
       accent: "#D699B6",
       links: [
-        { label: "YouTube", url: "https://youtube.com" },
-        { label: "Reddit",  url: "https://reddit.com" },
-        { label: "Netflix", url: "https://netflix.com" },
+        { label: "YouTube",              url: "https://youtube.com" },
+        { label: "Reddit",               url: "https://reddit.com" },
+        { label: "Netflix",              url: "https://netflix.com" },
+        { label: "Xbox Cloud Gaming",    url: "https://www.xbox.com/en-US/play" },
       ],
     },
     {
@@ -69,7 +70,7 @@ window.CONFIG = {
         { label: "Earthborne Rangers", url: "https://thelivingvalley.earthbornegames.com/docs/category/lure-of-the-valley/" },
         { label: "D&D Beyond",         url: "https://www.dndbeyond.com/en" },
         { label: "Makerworld",         url: "https://makerworld.com/en" },
-        { label: "Thingiverse",         url: "https://www.thingiverse.com/" },
+        { label: "Thingiverse",        url: "https://www.thingiverse.com/" },
       ],
     },
   ],
