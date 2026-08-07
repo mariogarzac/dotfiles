@@ -18,4 +18,7 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
-export PATH="$PATH:$GOPATH/bin/:/usr/local/:$HOME/.spicetify"
+export PIPX="$HOME/.local/bin"
+
+export PATH="$PATH:$GOPATH/bin/:$PIPX:/usr/local/:$HOME/.spicetify"
+

@@ -1,5 +1,7 @@
 start-at-login = true
 
+auto-reload-config = true
+
 automatically-unhide-macos-hidden-apps = false
 
 [gaps]
@@ -88,7 +90,11 @@ if.app-id = 'com.hnc.Discord'
 run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
-if.app-id = 'com.valvesoftware.steam'
+if.app-id = 'com.valvesoftware.steam.helper'
+run = ['move-node-to-workspace 7', 'layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.gamemac.www'
 run = 'move-node-to-workspace 7'
 
 [[on-window-detected]]
@@ -102,3 +108,11 @@ run = 'move-node-to-workspace 8'
 [[on-window-detected]]
 if.app-id = 'com.autodesk.fusion360'
 run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
+if.app-id = 'net.kovidgoyal.calibre'
+run = ['move-node-to-workspace 8', 'layout floating']
+
+[[on-window-detected]]
+if.app-id = 'NULL-APP-BUNDLE-ID'
+run = ['layout floating']
