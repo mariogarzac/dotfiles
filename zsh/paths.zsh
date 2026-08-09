@@ -20,5 +20,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export PIPX="$HOME/.local/bin"
 
-export PATH="$PATH:$GOPATH/bin/:$PIPX:/usr/local/:$HOME/.spicetify"
+export PATH="$PATH:$GOPATH/bin/:$PIPX:/usr/local/"
 

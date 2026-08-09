@@ -29,7 +29,7 @@ window.CONFIG = {
   // ── Icons ─────────────────────────────────────────────────────────────────
   // true: show favicons fetched via Google's favicon API
   // false: hide icons
-  favicons: true,
+  favicons: false,
 
   // ── Bookmark sections ─────────────────────────────────────────────────────
   // accent: any hex color — used for the dot and link hover
@@ -40,18 +40,18 @@ window.CONFIG = {
       links: [
         { label: "GitHub",    url: "https://github.com" },
         { label: "Claude",    url: "https://claude.ai" },
-        { label: "Escalatro", url: "http://localhost:3030/" },
         { label: "Figma",     url: "https://www.figma.com/design/VuiSkmISTmYq9afwqgJULi/Escalatro-Web-App?node-id=0-1&p=f&t=sqLh4CF5dIiJG6EJ-0" },
       ],
     },
     {
-      name: "Entertainment",
+      name: "Homelab",
       accent: "#D699B6",
       links: [
-        { label: "YouTube",              url: "https://youtube.com" },
-        { label: "Reddit",               url: "https://reddit.com" },
-        { label: "Netflix",              url: "https://netflix.com" },
-        { label: "Xbox Cloud Gaming",    url: "https://www.xbox.com/en-US/play" },
+        { label: "Proxmox",    url: "http://internal.moogc.cc" },
+        { label: "Pihole",     url: "http://pihole.moogc.cc" },
+        { label: "Monitoring", url: "http://monitoring.moogc.cc" },
+        { label: "Quartz",     url: "http://quartz.moogc.cc" },
+        { label: "Blitzed",    url: "https://blitzed.moogc.cc" },
       ],
     },
     {
