@@ -416,15 +416,26 @@
         const iconHtml = C.favicons
           ? `<img src="https://www.google.com/s2/favicons?domain=${domain}&sz=32" alt="" />`
           : '';
-        return `
-        <li>
-          <a href="${link.url}">
-            <span class="icon">${iconHtml}</span>
-            <span class="label">${link.label}</span>
-            <span class="domain">${domain}</span>
-          </a>
-        </li>
-        `;
+        if (C.favicons) {
+          return `
+          <li>
+            <a href="${link.url}">
+              <span class="icon">${iconHtml}</span>
+              <span class="label">${link.label}</span>
+              <span class="domain">${domain}</span>
+            </a>
+          </li>
+          `;
+        } else {
+          return `
+          <li>
+            <a href="${link.url}">
+              <span class="label">${link.label}</span>
+              <span class="domain">${domain}</span>
+            </a>
+          </li>
+          `;
+        }
       }).join('');
 
       card.innerHTML = `
