@@ -11,7 +11,11 @@ function del(){
 }
 
 function fd(){
-    selected_dir=$(find ~/repos ~/.dotfiles ~/Documents ~/Downloads -mindepth 1 -maxdepth 1 -type d ! -name ".*" -print | fzf)
+  selected_dir=$(
+    find ~/repos ~/.dotfiles ~/Documents ~/Downloads \
+    -maxdepth 1 -type d \
+    \( -path ~/.dotfiles -o ! -name ".*" \) \
+    -print | fzf)
 
     # Check if input is empty and exit if it is
     if [[ -z "$selected_dir" ]]; then
