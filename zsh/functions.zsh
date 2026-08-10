@@ -11,14 +11,7 @@ function del(){
 }
 
 function fd(){
-    selected_dir=$(find ~/repos ~/.dotfiles -type d \( \
-        -name '.obsidian' \
-        -o -name '.git' \
-        -o -name 'lib' \
-        -o -name 'bin' \
-        -o -name 'node_modules' \
-        -o -name 'Library' \
-        \) -prune -o -type d -print | fzf)
+    selected_dir=$(find ~/repos ~/.dotfiles ~/Documents ~/Downloads -mindepth 1 -maxdepth 1 -type d ! -name ".*" -print | fzf)
 
     # Check if input is empty and exit if it is
     if [[ -z "$selected_dir" ]]; then

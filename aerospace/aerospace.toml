@@ -102,6 +102,10 @@ if.app-id = 'com.nvidia.gfnpc.mall'
 run = 'move-node-to-workspace 7'
 
 [[on-window-detected]]
+if.app-id = 'NULL-APP-BUNDLE-ID'
+run = ['move-node-to-workspace 7', 'layout floating']
+
+[[on-window-detected]]
 if.app-id = 'com.orcaslicer.OrcaSlicer'
 run = 'move-node-to-workspace 8'
 
@@ -112,7 +116,3 @@ run = 'move-node-to-workspace 8'
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.calibre'
 run = ['move-node-to-workspace 8', 'layout floating']
-
-[[on-window-detected]]
-if.app-id = 'NULL-APP-BUNDLE-ID'
-run = ['layout floating']
