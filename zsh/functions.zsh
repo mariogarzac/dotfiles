@@ -1,7 +1,3 @@
-function alacritty-switch () {
-  ~/.dotfiles/alacritty/alacritty-switch.sh
-}
-
 function colormap() {
     for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
@@ -17,7 +13,6 @@ function fd(){
     \( -path ~/.dotfiles -o ! -name ".*" \) \
     -print | fzf)
 
-    # Check if input is empty and exit if it is
     if [[ -z "$selected_dir" ]]; then
         return
     fi
@@ -25,16 +20,10 @@ function fd(){
     session_name=$(basename "$selected_dir")
     session_name=${session_name//./}
 
-    # Check if the session already exists
-    if tmux ls | grep -q "$session_name"; then
-        tmux switch -t "$session_name"
-        return
+    if ! tmux has-session -t "$session_name" 2>/dev/null; then
+      tmux new-session -d -s "$session_name" -c "$selected_dir"
     fi
 
-    # Create the session
-    tmux new-session -d -s "$session_name" -c "$selected_dir"
-
-    # Switch or attach to the session
     if [[ -z "${TMUX}" ]]; then
         tmux attach -t "$session_name"
     else
